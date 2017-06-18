@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/bbtBankCardServices.iml" filepath="$PROJECT_DIR$/.idea/bbtBankCardServices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/bbtCardServices.iml" filepath="$PROJECT_DIR$/.idea/bbtCardServices.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,22 @@
+{
+  "name": "bbt_card_block_cancel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "Glenn Pinto",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-app": "^4.0.1",
+    "jasmine": "^2.6.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
+  "devDependencies": {
+    "jasmine-spec-reporter": "^4.1.0",
+    "supertest": "^3.0.0"
+  }
+}
