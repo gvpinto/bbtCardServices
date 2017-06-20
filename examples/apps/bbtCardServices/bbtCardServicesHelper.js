@@ -3,156 +3,145 @@
 module.change_code = 1;
 var _ = require('lodash');
 
-var prompts = {
-    // launch: 'Welcome to b b and t\'s credit and debit Card Services. For usage say, Block my credit or debit card.',
-    launch: 'Welcome to b b and t\'s credit and debit card services. For usage say, block my card or cancel my card.',
+var prompts = [
+    // Step 0 responses
+    {
+        launch: 'Welcome to b b and t\'s credit and debit card services. For usage say, I would like to block my credit card, or I\'ve have lost my debit card',
+        launchReprompt: 'How would like to proceed? Say, I would like to unblock my credit card, or my debit card was stolen'
+    },
 
-    askForAction: 'Would you like to block or cancel a card.',
+    // Step 1 responses
+    {
+        askForCardType: 'Is it a credit or debit card'
+    },
 
-    askForCardType: 'Would you like to block your credit or debit card.',
+    // Step 2 responses
+    {
+        askForCardNumber: 'What\'s the last four digit of the ${cardType} card'
+    },
 
-    askForCardNumber: 'What\'s the last four digit of the ${cardType} card.',
+    // Step 3 responses
+    {
+        askForZipCode: 'What\'s the Zip Code associated with the ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>',
 
-    askForZipCode: 'What\'s the zip code associated with the ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>.',
+        invalidZipCodeAskAgain: 'The Zip Code <say-as interpret-as="digits">${zipCode}</say-as> doesn\'t match with the provided ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Please restate the Zip Code'
+    },
 
-    invalidZipCode: 'Zip code doesn\'t match with the provided ${cardType} card.',
+    // Step 4 responses
+    {
+        confirmGeneral: 'Would you like to continue to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Please say yes to confirm, or no to cancel the transaction',
 
-    confirm: 'Would you like to continue to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Say yes to confirm, or say no to cancel the transaction.',
+        confirmReissue: 'Would you like a new card reissued in place of the ${action} ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Please say yes to confirm, or no to cancel the transaction'
 
-    confirmation: 'Your request to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as> has been successfully completed. Thank you for using bb and t card services. Goodbye!'
+    },
 
+    // Step 5 responses
+    {
+        generalConfirmation: 'Your request to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as> has been successfully completed. Thank you for using bb and t card services. Goodbye!',
 
-// askForZipCode: 'What\'s the zip code associated with this card?'
-//
-//     cardNumberPresent: 'Do you want to block your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>.'
-};
+        reissueConfirmation: 'Your request to reissue your ${action} ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. has been successfully completed. Thank you for using bb and t card services. Goodbye!'
+    }
 
-/**
- * Define a function for BBT Card Services helper  object
- * @param cardServicesSession
- * @constructor
- */
-function BbtCardServicesHelper(cardServicesSession) {
+];
 
-    this.cardServicesSession = cardServicesSession;
+function applyTemplate(step, messageKey, action, cardType, cardNumber, zipCode) {
 
-    this.currentStep = 0;
-
+    return _.template(prompts[step][messageKey])({
+        action: action || '',
+        cardType: cardType || '',
+        cardNumber: cardNumber || '',
+        zipCode: zipCode || ''
+    });
 }
-
-/**
- * get Card Services Session Info Object.
- * @returns {*}
- */
-BbtCardServicesHelper.prototype.getCardServicesSession = function () {
-    return this.cardServicesSession
-};
 
 /**
  * Return the Launch Prompt String
  * @returns {string}
  */
 BbtCardServicesHelper.prototype.getLaunchPrompt = function () {
-    return prompts.launch;
+    this.cardServicesSession.step = 0;
+    this.cardServicesSession.launch = 'launch';
+    return prompts[0].launch;
 };
 
-// BbtCardServicesHelper.prototype.blockCard = function (cardType, cardNumber, zipCode) {
-//     var response = {};
-//     if (_.isEmpty(cardType)) {
-//         response.verbiage = prompts.askForCardType;
-//         response.step = 1;
-//     } else if (_.isEmpty(cardNumber)) {
-//         response.verbiage = _.template(prompts.askForCardNumber)({
-//             cardType: cardType
-//         });
-//         response.step = 2;
-//     } else if (_.isEmpty(zipCode)) {
-//         response.verbiage = _.template(prompts.askForZipCode)({
-//             cardType: cardType,
-//             cardNumber: cardNumber
-//         });
-//         response.step = 3;
-//     } else {
-//         // Verify if the data is accurate
-//         if (zipCode === '27604') {
-//             // continue
-//             response.step = 4;
-//         } else {
-//             // re-prompt
-//             response.verbiage = _.template(prompts.invalidZipCode)({
-//                     cardType: cardType
-//                 }) + _.template(prompts.askForZipCode)({
-//                     cardType: cardType,
-//                     cardNumber: cardNumber
-//                 });
-//
-//             response.step = 3;
-//         }
-//     }
-//
-//
-//     this.cardServicesSession.step = response.step;
-//     return response;
-// }
 
 /**
- * Intent with Action whether to block or cancel a credit or debit card
+ * Intent with Action, moving to Step 1
+ * whether to block or cancel a credit or debit card
  * @param action
  */
-BbtCardServicesHelper.prototype.intentWithAction = function (action) {
+BbtCardServicesHelper.prototype.intentWithAction = function (action, cardType) {
+
+    // console.log('Action: ', action);
+    // console.log('Card Type: ', cardType);
     var response = {};
-    if (_.isEmpty(action) || (action !== 'block' && action !== 'cancel')) {
-        response.verbiage = prompts.askForAction;
-        response.step = 1;
-    } else {
+
+    if (!_.isEmpty(action) && ['lost', 'stolen', 'find', 'block', 'unblock'].indexOf(action) != -1) {
+
+        if (action === 'find') {
+            action = 'missing';
+        }
+        if (!_.isEmpty(cardType)) {
+            response.step = 2;
+            this.cardServicesSession.cardType = cardType;
+            response.verbiage = applyTemplate(response.step, 'askForCardNumber', action, cardType);
+        } else {
+            response.step = 1;
+            response.verbiage = applyTemplate(response.step, 'askForCardType', action);
+        }
+
         this.cardServicesSession.action = action;
-        response.verbiage = prompts.askForCardType;
-        response.step = 2;
+
+    } else {
+        // Re prompt the use for action
+        response.step = 0;
+        response.verbiage = applyTemplate(response.step, 'launchReprompt', action);
     }
+
     this.cardServicesSession.step = response.step;
+
     return response;
 };
 
+
+
 /**
- * Intent with card type
+ * Intent with card type, moving to step 2
  * @param cardType
  * @returns {{}}
  */
 BbtCardServicesHelper.prototype.intentWithCardType = function (cardType) {
     var response = {};
-    if (_.isEmpty(cardType) || (cardType !== 'credit' && cardType !== 'debit')) {
-        response.verbiage = prompts.askForCardType;
+
+    if (!_.isEmpty(cardType) && ['credit', 'debit',].indexOf(cardType) != -1) {
         response.step = 2;
-    } else {
         this.cardServicesSession.cardType = cardType;
-        response.verbiage = _.template(prompts.askForCardNumber)({
-            cardType: this.cardServicesSession.cardType
-        });
-        response.step = 3;
+        response.verbiage = applyTemplate(response.step, 'askForCardNumber', this.cardServicesSession.action, this.cardServicesSession.cardType);
+
+    } else {
+        response.step = 1;
+        response.verbiage = applyTemplate(response.step, 'askForCardType', this.cardServicesSession.action);
     }
+
     this.cardServicesSession.step = response.step;
     return response;
 };
 
 /**
- * Intent with Card Number
+ * Intent with Card Number, moving to Step 3
  * @param cardNumber
- * @returns {{}}
+ * @returns {{}} response
  */
 BbtCardServicesHelper.prototype.intentWithCardNumber = function (cardNumber) {
     var response = {};
-    if (_.isEmpty(cardNumber)) {
-        response.verbiage = _.template(prompts.askForCardNumber)({
-            cardType: this.cardServicesSession.cardType
-        });
-        response.step = 3;
-    } else {
+    if (!_.isEmpty(cardNumber) && /^[0-9]{4}$/.test(cardNumber)) {
         this.cardServicesSession.cardNumber = cardNumber;
-        response.verbiage = _.template(prompts.askForZipCode)({
-            cardType: this.cardServicesSession.cardType,
-            cardNumber: this.cardServicesSession.cardNumber
-        });
-        response.step = 4;
+        response.step = 3;
+        response.verbiage = applyTemplate(response.step, 'askForZipCode', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber);
+    } else {
+        response.step = 2;
+        response.verbiage = applyTemplate(response.step, 'askForCardNumber', this.cardServicesSession.action, this.cardServicesSession.cardType);
+
     }
     this.cardServicesSession.step = response.step;
     return response;
@@ -165,33 +154,30 @@ BbtCardServicesHelper.prototype.intentWithCardNumber = function (cardNumber) {
  */
 BbtCardServicesHelper.prototype.intentWithZipCode = function (zipCode) {
     var response = {};
-    if (_.isEmpty(zipCode)) {
-        response.verbiage = _.template(prompts.askForZipCode)({
-            cardType: this.cardServicesSession.cardType,
-            cardNumber: this.cardServicesSession.cardNumber
-        });
-        response.step = 4;
-    } else {
+    if (!_.isEmpty(zipCode) && /^[0-9]{5}$/.test(zipCode)) {
+
+        this.cardServicesSession.zipCode = zipCode;
+
         if (zipCode === '27604') {
-            // continue
-            this.cardServicesSession.zipCode = zipCode;
-            response.verbiage = _.template(prompts.confirm)({
-                action: this.cardServicesSession.action,
-                cardType: this.cardServicesSession.cardType,
-                cardNumber: this.cardServicesSession.cardNumber
-            });
-            response.step = 5;
-        } else {
-            // re-prompt
-            response.verbiage = _.template(prompts.invalidZipCode)({
-                    cardType: this.cardServicesSession.cardType
-                }) + ' ' + _.template(prompts.askForZipCode)({
-                    cardType: this.cardServicesSession.cardType,
-                    cardNumber: this.cardServicesSession.cardNumber
-                });
 
             response.step = 4;
+            if (['lost', 'stolen', 'missing'].indexOf(this.cardServicesSession.action) != -1) {
+                response.verbiage = applyTemplate(response.step, 'confirmReissue', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber, this.cardServicesSession.zipCode);
+            } else {
+                response.verbiage = applyTemplate(response.step, 'confirmGeneral', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber, this.cardServicesSession.zipCode);
+            }
+
+        } else {
+
+            response.step = 3;
+            response.verbiage = applyTemplate(response.step, 'invalidZipCodeAskAgain', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber, this.cardServicesSession.zipCode);
+
         }
+
+    } else {
+
+        response.step = 3;
+        response.verbiage = applyTemplate(response.step, 'askForZipCode', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber);
     }
     this.cardServicesSession.step = response.step;
     return response;
@@ -202,13 +188,35 @@ BbtCardServicesHelper.prototype.intentWithZipCode = function (zipCode) {
  */
 BbtCardServicesHelper.prototype.intentConfirmed = function () {
     var response = {};
-    response.verbiage = _.template(prompts.confirmation)({
-        action: this.cardServicesSession.action,
-        cardType: this.cardServicesSession.cardType,
-        cardNumber: this.cardServicesSession.cardNumber
-    });
-    response.step = 6;
+    response.step = 5;
+    if (['lost', 'stolen', 'missing'].indexOf(this.cardServicesSession.action) != -1) {
+        // missing card
+        response.verbiage = applyTemplate(response.step, 'reissueConfirmation', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber, this.cardServicesSession.zipCode);
+    } else {
+        // block or unblock card
+        response.verbiage = applyTemplate(response.step, 'generalConfirmation', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber, this.cardServicesSession.zipCode);
+    }
+
     this.cardServicesSession.step = response.step;
     return response;
+};
+
+/**
+ * Define a function for BBT Card Services helper  object
+ * @param cardServicesSession
+ * @constructor
+ */
+function BbtCardServicesHelper(cardServicesSession) {
+
+    this.cardServicesSession = cardServicesSession;
+
+}
+
+/**
+ * get Card Services Session Info Object.
+ * @returns {*}
+ */
+BbtCardServicesHelper.prototype.getCardServicesSession = function () {
+    return this.cardServicesSession
 };
 module.exports = BbtCardServicesHelper;

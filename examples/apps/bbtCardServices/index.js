@@ -112,31 +112,93 @@ var getCurrentStep = function (request) {
  * Launch: Start BB&T Card Services
  */
 bbtCardServicesApp.launch(function (request, response) {
-    var bbtCardServicesHelper = getbbtCardServicesHelper();
+    var bbtCardServicesHelper = getbbtCardServicesHelper(request);
     var prompt =  bbtCardServicesHelper.getLaunchPrompt();
     response.say(prompt).shouldEndSession(false);
+});
+
+bbtCardServicesApp.intent('intentLostOrStolen', {
+    'slots': {
+        'action': 'ACTION',
+        'cardType': 'CARD_TYPE'
+    },
+    'utterances': [
+        'I\'ve have {-|action} my {-|cardType} card',
+        'My {-|cardType} was {-|action}',
+        'I can\'t {-|action} my {-|cardType} card'
+    ]
+} ,function(request, response) {
+    console.log('[intentLostOrStolen]');
+    var bbtCardServicesHelper = getbbtCardServicesHelper(request);
+
+
+    var action = request.slot('action');
+    console.log('[intentLostOrStolen] - action: ', action);
+
+    var cardType = request.slot('cardType');
+    console.log('[intentLostOrStolen] - cardType: ', cardType);
+
+    // Action default to lost when the card is lost or stolen
+    var respobj = bbtCardServicesHelper.intentWithAction(action, cardType);
+
+    console.log('[intentLostOrStolen] - response: ', respobj.verbiage);
+
+    // Update Session Information
+    setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
+
+    // Return true if Synchronous call if not return false
+    response.say(respobj.verbiage).shouldEndSession(false).send();
+    return true;
 });
 
 /**
  * Intent: Action whether to block or cancel a credit or debit card
  */
-bbtCardServicesApp.intent('intentAction', {
+bbtCardServicesApp.intent('intentBlock', {
     'slots': {
-        'action': 'ACTION'
+        'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{-|action} my {|credit|debit} card'
+        '{I would like to} block my {-|cardType} card'
     ]
 }, function(request, response) {
-    console.log('[intentAction]');
+    console.log('[intentBlock]');
     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
 
 
-    var action = request.slot('action');
-    console.log('[intentAction] - action: ', action);
+    var cardType = request.slot('cardType');
+    console.log('[intentBlock] - cardType: ', cardType);
 
-    var respobj = bbtCardServicesHelper.intentWithAction(action);
-    console.log('[intentAction] - response: ', respobj.verbiage);
+    var respobj = bbtCardServicesHelper.intentWithAction('block', cardType);
+    console.log('[intentBlock] - response: ', respobj.verbiage);
+
+    // Update Session Information
+    setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
+
+    // Return true if Synchronous call if not return false
+    response.say(respobj.verbiage).shouldEndSession(false).send();
+    return true;
+});
+
+/**
+ * Intent: Action whether to block or cancel a credit or debit card
+ */
+bbtCardServicesApp.intent('intentUnblock', {
+    'slots': {
+        'cardType': 'CARD_TYPE'
+    },
+    'utterances': [
+        '{I would like to} unblock my {-|cardType} card'
+    ]
+}, function(request, response) {
+    console.log('[intentUnblock]');
+    var bbtCardServicesHelper = getbbtCardServicesHelper(request);
+
+    var cardType = request.slot('cardType');
+    console.log('[intentUnblock] - cardType: ', cardType);
+
+    var respobj = bbtCardServicesHelper.intentWithAction('unblock', cardType);
+    console.log('[intentUnblock] - response: ', respobj.verbiage);
 
     // Update Session Information
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
@@ -194,7 +256,7 @@ bbtCardServicesApp.intent('intentWithCardNumberOrZipCode', {
     console.log('[intentWithCardNumberOrZipCode] - numberSlot: ', numberSlot);
 
     var respobj;
-    if (cardServicesSession.step === 3) {
+    if (cardServicesSession.step === 2) {
         respobj = bbtCardServicesHelper.intentWithCardNumber(numberSlot);
     } else {
         respobj = bbtCardServicesHelper.intentWithZipCode(numberSlot);
