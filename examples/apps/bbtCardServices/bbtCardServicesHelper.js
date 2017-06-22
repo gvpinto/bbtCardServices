@@ -45,7 +45,9 @@ var prompts = [
 
         reissueConfirmation: 'Your request to reissue your ${action} ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. has been successfully completed. Thank you for using bb and t card services. Goodbye!',
 
-        travelConfirmation: 'OK, I\'ve notified bb and t that you\'ll be travelling internationally from <say-as interpret-as="date" format="ymd">${fromDate}</say-as> to <say-as interpret-as="date" format="ymd">${toDate}</say-as> for you card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Thank you for using bb and t card services. Goodbye!'
+        // travelConfirmation: 'OK, I\'ve notified bb and t that you\'ll be travelling internationally from <say-as interpret-as="date" format="ymd">${fromDate}</say-as> to <say-as interpret-as="date" format="ymd">${toDate}</say-as> for you card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Thank you for using bb and t card services. Goodbye!'
+        travelConfirmation: 'OK, I\'ve notified bb and t that you\'ll be travelling internationally on the given dates for your card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Thank you for using bb and t card services. Goodbye!'
+
     }
 
 ];

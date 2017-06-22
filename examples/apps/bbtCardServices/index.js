@@ -212,9 +212,9 @@ bbtCardServicesApp.intent('intentUnblock', {
  * Intent: Action whether to block or cancel a credit or debit card
  */
 bbtCardServicesApp.intent('intentTravel', {
-    'slots': {
-
-    },
+    // 'slots': {
+    //
+    // },
     'utterances': [
         'I\'m going out of the country',
         'I\'ll be travelling out of the country',

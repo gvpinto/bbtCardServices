@@ -349,9 +349,18 @@ describe("Test Block Card Function", function () {
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('block');
         expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
 
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit', cardNumber: '2345', zipCode: '27604', fromDate:'2017-09-01', toDate: '2017-10-15'});
+        var response = bbtCardServicesHelper.intentConfirmed();
+        expect(response.verbiage).toEqual('OK, I\'ve notified bb and t that you\'ll be travelling internationally on the given dates for your card ending in <say-as interpret-as="digits">2345</say-as>. Thank you for using bb and t card services. Goodbye!');
+        expect(response.step).toEqual(5);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(5);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+        expect(bbtCardServicesHelper.getCardServicesSession().fromDate).toEqual('2017-09-01');
+        expect(bbtCardServicesHelper.getCardServicesSession().toDate).toEqual('2017-10-15');
+
     });
 });
-
 
 describe("Test Intents", function () {
 
