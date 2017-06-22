@@ -11,6 +11,13 @@ console.log(_.template(prompts[0]['test1'])({
     'message': 'Hello'
 }));
 
+
+
+
+
+
+
+
 // var action = 'lost'
 // if (['stolen', 'lost'].indexOf(action) != -1) {
 //     console.log('found:', action);

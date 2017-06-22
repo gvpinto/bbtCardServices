@@ -5,34 +5,34 @@ describe("Test Block Card Function", function () {
 
     it("Test 1 - Step 0: Launch Intent or missing action or invalid action", function () {
         var bbtCardServicesHelper = new BbtCardSevicesHelper({});
-        expect(bbtCardServicesHelper.getLaunchPrompt()).toBe('Welcome to b b and t\'s credit and debit card services. For usage say, I would like to block my credit card, or I\'ve have lost my debit card');
+        expect(bbtCardServicesHelper.getLaunchPrompt()).toBe('Welcome to b b and t\'s credit and debit card services. What would you like to do today?');
     });
 
     it("Test 2 - Step 0. Ask for Action Intent, empty or invalid action", function () {
         var bbtCardServicesHelper = new BbtCardSevicesHelper({});
         var response = bbtCardServicesHelper.intentWithAction();
-        expect(response.verbiage).toBe('How would like to proceed? Say, I would like to unblock my credit card, or my debit card was stolen');
+        expect(response.verbiage).toBe('How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country');
         expect(response.step).toBe(0);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
 
         var bbtCardServicesHelper = new BbtCardSevicesHelper({});
         var response = bbtCardServicesHelper.intentWithAction('something');
-        expect(response.verbiage).toBe('How would like to proceed? Say, I would like to unblock my credit card, or my debit card was stolen');
+        expect(response.verbiage).toBe('How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country');
         expect(response.step).toBe(0);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
 
         var bbtCardServicesHelper = new BbtCardSevicesHelper({});
         var response = bbtCardServicesHelper.intentWithAction('');
-        expect(response.verbiage).toBe('How would like to proceed? Say, I would like to unblock my credit card, or my debit card was stolen');
+        expect(response.verbiage).toBe('How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country');
         expect(response.step).toBe(0);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
 
         var bbtCardServicesHelper = new BbtCardSevicesHelper({});
         var response = bbtCardServicesHelper.intentWithAction(null);
-        expect(response.verbiage).toBe('How would like to proceed? Say, I would like to unblock my credit card, or my debit card was stolen');
+        expect(response.verbiage).toBe('How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country');
         expect(response.step).toBe(0);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
@@ -106,6 +106,56 @@ describe("Test Block Card Function", function () {
 
     });
 
+    it("Test 4.1 - Step 2. Ask for Travel Intent", function () {
+
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({});
+        var response = bbtCardServicesHelper.intentWithTravel('travel');
+        expect(response.verbiage).toEqual('What dates will you be travelling');
+        expect(response.step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+
+    });
+
+    it("Test 4.2 - Step 2. Ask for Travel Dates Intent - Valid Dates", function () {
+
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit'});
+        var response = bbtCardServicesHelper.intentWithTravelDates('2017-09-01', '2017-10-15');
+        expect(response.verbiage).toEqual('What\'s the last four digit of the credit card');
+        expect(response.step).toEqual(2);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(2);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+        expect(bbtCardServicesHelper.getCardServicesSession().fromDate).toEqual('2017-09-01');
+        expect(bbtCardServicesHelper.getCardServicesSession().toDate).toEqual('2017-10-15');
+
+    });
+
+    it("Test 4.3 - Step 2. Ask for Travel Dates Intent - Invalid Dates", function () {
+
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel'});
+        var response = bbtCardServicesHelper.intentWithTravelDates(undefined, '2017-10-15');
+        expect(response.verbiage).toEqual('What dates will you be travelling');
+        expect(response.step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel'});
+        var response = bbtCardServicesHelper.intentWithTravelDates(undefined, undefined);
+        expect(response.verbiage).toEqual('What dates will you be travelling');
+        expect(response.step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel'});
+        var response = bbtCardServicesHelper.intentWithTravelDates('2017-09', '2017-10-15');
+        expect(response.verbiage).toEqual('What dates will you be travelling');
+        expect(response.step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+
+    });
+
     it("Test 5 - Step 1. Ask for Card Type Intent all actions but missing card type", function () {
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'block'});
         var response = bbtCardServicesHelper.intentWithCardType();
@@ -165,6 +215,7 @@ describe("Test Block Card Function", function () {
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('block');
         expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
 
+
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'block', cardType: 'debit'});
         var response = bbtCardServicesHelper.intentWithCardNumber('');
         expect(response.verbiage).toEqual('What\'s the last four digit of the debit card');
@@ -222,6 +273,27 @@ describe("Test Block Card Function", function () {
 
     });
 
+
+    it("Test 9.1 - Ask for Zip Code Intent for travel with Invalid Zip Code ", function () {
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit', cardNumber: '2345'});
+        var response = bbtCardServicesHelper.intentWithZipCode();
+        expect(response.verbiage).toEqual('What\'s the Zip Code associated with the credit card ending in <say-as interpret-as="digits">2345</say-as>');
+        expect(response.step).toEqual(3);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(3);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+
+        // Invalid Zip Code
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit', cardNumber: '2345'});
+        var response = bbtCardServicesHelper.intentWithZipCode('27613');
+        expect(response.verbiage).toEqual('The Zip Code <say-as interpret-as="digits">27613</say-as> doesn\'t match with the provided credit card ending in <say-as interpret-as="digits">2345</say-as>. Please restate the Zip Code');
+        expect(response.step).toEqual(3);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(3);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+
+    });
+
     it("Test 10 - Ask for Zip Code Intent for lost, stolen and find with Valid Zip Code ", function () {
 
         // Valid for lost
@@ -240,6 +312,19 @@ describe("Test Block Card Function", function () {
         expect(response.step).toEqual(4);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(4);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('block');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+
+    });
+
+    it("Test 10.1 - Ask for Zip Code Intent for Travel with Valid Zip Code ", function () {
+
+        // Valid for lost
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit', cardNumber: '2345', fromDate: '2017-09-01', toDate: '2017-10-15'});
+        var response = bbtCardServicesHelper.intentWithZipCode('27604');
+        expect(response.verbiage).toEqual('Would you like to go ahead and notify bb and t that you\'ll be travelling internationally from <say-as interpret-as="date" format="ymd">2017-09-01</say-as> to <say-as interpret-as="date" format="ymd">2017-10-15</say-as> for you card ending in <say-as interpret-as="digits">2345</say-as>');
+        expect(response.step).toEqual(4);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(4);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
         expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
 
     });

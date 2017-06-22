@@ -16,6 +16,9 @@
     "request-promise": "^4.2.1"
   },
   "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jasmine-nodejs": "^1.6.0",
     "jasmine-spec-reporter": "^4.1.0",
     "supertest": "^3.0.0"
   }

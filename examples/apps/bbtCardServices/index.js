@@ -209,6 +209,66 @@ bbtCardServicesApp.intent('intentUnblock', {
 });
 
 /**
+ * Intent: Action whether to block or cancel a credit or debit card
+ */
+bbtCardServicesApp.intent('intentTravel', {
+    'slots': {
+
+    },
+    'utterances': [
+        'I\'m going out of the country',
+        'I\'ll be travelling out of the country',
+        'I\'m going to Europe',
+        'I\'m going to Australia',
+    ]
+}, function(request, response) {
+    console.log('[intentTravel]');
+    var bbtCardServicesHelper = getbbtCardServicesHelper(request);
+
+
+    var respobj = bbtCardServicesHelper.intentWithTravel('travel');
+    console.log('[intentTravel] - response: ', respobj.verbiage);
+
+    // Update Session Information
+    setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
+
+    // Return true if Synchronous call if not return false
+    response.say(respobj.verbiage).shouldEndSession(false).send();
+    return true;
+});
+
+/**
+ * Intent: Action whether to block or cancel a credit or debit card
+ */
+bbtCardServicesApp.intent('intentTravelDates', {
+    'slots': {
+        'fromDate': 'AMAZON.DATE',
+        'toDate': 'AMAZON.DATE'
+    },
+    'utterances': [
+        '{|I will be travelling} {|from} {-|fromDate} {|to|and will be back on} {-|toDate}'
+    ]
+}, function(request, response) {
+    console.log('[intentForTravelDates]');
+    var bbtCardServicesHelper = getbbtCardServicesHelper(request);
+
+    var fromDate = request.slot('fromDate');
+    console.log('[intentForTravelDates] - fromDate: ', fromDate);
+    var toDate = request.slot('toDate');
+    console.log('[intentForTravelDates] - toDate: ', toDate);
+
+    var respobj = bbtCardServicesHelper.intentWithTravelDates(fromDate, toDate);
+    console.log('[intentForTravelDates] - response: ', respobj.verbiage);
+
+    // Update Session Information
+    setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
+
+    // Return true if Synchronous call if not return false
+    response.say(respobj.verbiage).shouldEndSession(false).send();
+    return true;
+});
+
+/**
  * Intent: Ask for Card Type
  */
 bbtCardServicesApp.intent('intentWithCardType', {
@@ -269,6 +329,7 @@ bbtCardServicesApp.intent('intentWithCardNumberOrZipCode', {
 
     // Return true if Synchronous call if not return false
     response.say(respobj.verbiage).shouldEndSession(false).send();
+
     return true;
 });
 
