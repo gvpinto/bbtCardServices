@@ -5,7 +5,37 @@ describe("Test Block Card Function", function () {
 
     it("Test 1 - Step 0: Launch Intent or missing action or invalid action", function () {
         var bbtCardServicesHelper = new BbtCardSevicesHelper({});
-        expect(bbtCardServicesHelper.getLaunchPrompt()).toBe('Welcome to b b and t\'s credit and debit card services. What would you like to do today?');
+        expect(bbtCardServicesHelper.getLaunchPrompt().verbiage).toEqual('Welcome to b b and t\'s credit and debit card services. What would you like to do today?');
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().cardNumber).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().zipCode).toEqual(undefined);
+    });
+
+    it("Test 1.1 - Step 0: Launch Intent or missing action or invalid action", function () {
+        var bbtCardServicesHelper = new BbtCardSevicesHelper();
+        expect(bbtCardServicesHelper.getLaunchPrompt().verbiage).toEqual('Welcome to b b and t\'s credit and debit card services. What would you like to do today?');
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().cardNumber).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().zipCode).toEqual(undefined);
+    });
+
+
+    it("Test 1.2 - Continue Session", function () {
+
+        // Valid for lost
+        var bbtCardServicesHelper = new BbtCardSevicesHelper();
+        var response = bbtCardServicesHelper.getLaunchPrompt('Y');
+        expect(response.verbiage).toEqual('What else would you like to do today? To block a card, say, I would like to block my card, or for lost or stolen card say, I have lost my credit card, and for international travel say, I will be travelling out of the country.');
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().cardNumber).toEqual(undefined);
+        expect(bbtCardServicesHelper.getCardServicesSession().zipCode).toEqual(undefined);
     });
 
     it("Test 2 - Step 0. Ask for Action Intent, empty or invalid action", function () {
@@ -329,87 +359,115 @@ describe("Test Block Card Function", function () {
 
     });
 
-    it("Test 10 - Confirmation", function () {
+    it("Test 10.2 - Confirmation", function () {
 
         // Valid for lost
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'lost', cardType: 'credit', cardNumber: '2345', zipCode: '27604'});
         var response = bbtCardServicesHelper.intentConfirmed();
-        expect(response.verbiage).toEqual('Your request to reissue your lost credit card ending in <say-as interpret-as="digits">2345</say-as>. has been successfully completed. Thank you for using bb and t card services. Goodbye!');
+        expect(response.verbiage).toEqual('Your request to reissue your lost credit card ending in <say-as interpret-as="digits">2345</say-as>. has been successfully completed. Is there anything else I can do for you today?');
         expect(response.step).toEqual(5);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(5);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('lost');
         expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardNumber).toEqual('2345');
+        expect(bbtCardServicesHelper.getCardServicesSession().zipCode).toEqual('27604');
 
         // Valid for block
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'block', cardType: 'credit', cardNumber: '2345', zipCode: '27604'});
         var response = bbtCardServicesHelper.intentConfirmed();
-        expect(response.verbiage).toEqual('Your request to block your credit card ending in <say-as interpret-as="digits">2345</say-as> has been successfully completed. Thank you for using bb and t card services. Goodbye!');
+        expect(response.verbiage).toEqual('Your request to block your credit card ending in <say-as interpret-as="digits">2345</say-as> has been successfully completed. Is there anything else I can do for you today?');
         expect(response.step).toEqual(5);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(5);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('block');
         expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardNumber).toEqual('2345');
+        expect(bbtCardServicesHelper.getCardServicesSession().zipCode).toEqual('27604');
 
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit', cardNumber: '2345', zipCode: '27604', fromDate:'2017-09-01', toDate: '2017-10-15'});
         var response = bbtCardServicesHelper.intentConfirmed();
-        expect(response.verbiage).toEqual('OK, I\'ve notified bb and t that you\'ll be travelling internationally on the given dates for your card ending in <say-as interpret-as="digits">2345</say-as>. Thank you for using bb and t card services. Goodbye!');
+        expect(response.verbiage).toEqual('OK, I\'ve notified bb and t that you\'ll be travelling internationally on the given dates for your card ending in <say-as interpret-as="digits">2345</say-as>. Is there anything else I can do for you today?');
         expect(response.step).toEqual(5);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(5);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
         expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
         expect(bbtCardServicesHelper.getCardServicesSession().fromDate).toEqual('2017-09-01');
         expect(bbtCardServicesHelper.getCardServicesSession().toDate).toEqual('2017-10-15');
-
-    });
-});
-
-describe("Test Intents", function () {
-
-    var session;
-    var intents;
-    var request;
-    var response;
-
-    beforeEach(function () {
-
-        intents = {
-            'slots': {
-                'cardType': 'CARD_TYPE',
-                'cardNumber': 'AMAZON.FOUR_DIGIT_NUMBER',
-                'zipCode': 'AMAZON.NUMBER'
-            }
-        };
-
-        session = {
-            setSession: function (key, value) {
-                this.key = value;
-            }
-        };
-
-        request = {
-
-            getSession: function () {
-                return session;
-            },
-            session: function (key) {
-                return session['key'];
-            },
-
-            getSlot: function(slot) {
-                if(slot === 'cardNumber') {
-                    return '2345';
-                } else if (slot === 'cardType') {
-                    return 'credit';
-                }
-
-            }
-        };
-
-        response = jasmine.createSpyObj('response', ['say', 'shouldEndSession', 'send']);
+        expect(bbtCardServicesHelper.getCardServicesSession().cardNumber).toEqual('2345');
+        expect(bbtCardServicesHelper.getCardServicesSession().zipCode).toEqual('27604');
 
     });
 
-    // it("Test Step 0", function () {
-    //     var bbtCardServices = require('../index');
-    //     expect(response.tellWithCard).toHaveBeenCalled();
-    // })
+
+    it("Test 10.3 - Sign Off", function () {
+
+        // Valid for lost
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({
+            action: 'lost',
+            cardType: 'credit',
+            cardNumber: '2345',
+            zipCode: '27604'
+        });
+        var response = bbtCardServicesHelper.getSignOff();
+        expect(response.verbiage).toEqual('Thank yor for banking with B B and T. Have a nice day!');
+        expect(response.step).toEqual(6);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(6);
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('lost');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
+        expect(bbtCardServicesHelper.getCardServicesSession().cardNumber).toEqual('2345');
+        expect(bbtCardServicesHelper.getCardServicesSession().zipCode).toEqual('27604');
+    });
+
+
 });
+
+// describe("Test Intents", function () {
+//
+//     var session;
+//     var intents;
+//     var request;
+//     var response;
+//
+//     beforeEach(function () {
+//
+//         intents = {
+//             'slots': {
+//                 'cardType': 'CARD_TYPE',
+//                 'cardNumber': 'AMAZON.FOUR_DIGIT_NUMBER',
+//                 'zipCode': 'AMAZON.NUMBER'
+//             }
+//         };
+//
+//         session = {
+//             setSession: function (key, value) {
+//                 this.key = value;
+//             }
+//         };
+//
+//         request = {
+//
+//             getSession: function () {
+//                 return session;
+//             },
+//             session: function (key) {
+//                 return session['key'];
+//             },
+//
+//             getSlot: function(slot) {
+//                 if(slot === 'cardNumber') {
+//                     return '2345';
+//                 } else if (slot === 'cardType') {
+//                     return 'credit';
+//                 }
+//
+//             }
+//         };
+//
+//         response = jasmine.createSpyObj('response', ['say', 'shouldEndSession', 'send']);
+//
+//     });
+//
+//     // it("Test Step 0", function () {
+//     //     var bbtCardServices = require('../index');
+//     //     expect(response.tellWithCard).toHaveBeenCalled();
+//     // })
+// });

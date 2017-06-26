@@ -8,7 +8,8 @@ var prompts = [
     // Step 0 responses
     {
         launch: 'Welcome to b b and t\'s credit and debit card services. What would you like to do today?',
-        launchReprompt: 'How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country'
+        launchReprompt: 'How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country',
+        launchContinue: 'What else would you like to do today? To block a card, say, I would like to block my card, or for lost or stolen card say, I have lost my credit card, and for international travel say, I will be travelling out of the country.'
     },
 
     // Step 1 responses
@@ -41,13 +42,19 @@ var prompts = [
 
     // Step 5 responses
     {
-        generalConfirmation: 'Your request to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as> has been successfully completed. Thank you for using bb and t card services. Goodbye!',
+        generalConfirmation: 'Your request to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as> has been successfully completed. Is there anything else I can do for you today?',
 
-        reissueConfirmation: 'Your request to reissue your ${action} ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. has been successfully completed. Thank you for using bb and t card services. Goodbye!',
+        reissueConfirmation: 'Your request to reissue your ${action} ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. has been successfully completed. Is there anything else I can do for you today?',
 
         // travelConfirmation: 'OK, I\'ve notified bb and t that you\'ll be travelling internationally from <say-as interpret-as="date" format="ymd">${fromDate}</say-as> to <say-as interpret-as="date" format="ymd">${toDate}</say-as> for you card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Thank you for using bb and t card services. Goodbye!'
-        travelConfirmation: 'OK, I\'ve notified bb and t that you\'ll be travelling internationally on the given dates for your card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Thank you for using bb and t card services. Goodbye!'
 
+        travelConfirmation: 'OK, I\'ve notified bb and t that you\'ll be travelling internationally on the given dates for your card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Is there anything else I can do for you today?'
+
+    },
+
+    // Step 6 - Sign off
+    {
+        signOff: 'Thank yor for banking with B B and T. Have a nice day!'
     }
 
 ];
@@ -65,13 +72,36 @@ function applyTemplate(step, messageKey, action, cardType, cardNumber, zipCode, 
 }
 
 /**
+ * Define a function for BBT Card Services helper  object
+ * @param cardServicesSession
+ * @constructor
+ */
+function BbtCardServicesHelper(cardServicesSession) {
+
+    this.cardServicesSession = cardServicesSession;
+
+}
+
+/**
  * Return the Launch Prompt String
  * @returns {string}
  */
-BbtCardServicesHelper.prototype.getLaunchPrompt = function () {
-    this.cardServicesSession.step = 0;
-    this.cardServicesSession.launch = 'launch';
-    return prompts[0].launch;
+BbtCardServicesHelper.prototype.getLaunchPrompt = function (continueNext) {
+    var response = {};
+    response.step = 0;
+    console.log('this.cardServicesSession: ', this.cardServicesSession);
+    if (this.cardServicesSession === undefined) {
+        this.cardServicesSession = {};
+    }
+    this.cardServicesSession.step = response.step;
+    // this.cardServicesSession.launch = 'launch';
+
+    if (continueNext === undefined) {
+        response.verbiage = prompts[response.step].launch
+    } else {
+        response.verbiage = prompts[response.step].launchContinue;
+    }
+    return response;
 };
 
 
@@ -255,15 +285,19 @@ BbtCardServicesHelper.prototype.intentConfirmed = function () {
 };
 
 /**
- * Define a function for BBT Card Services helper  object
- * @param cardServicesSession
- * @constructor
+ * Sign off
+ * @returns {string}
  */
-function BbtCardServicesHelper(cardServicesSession) {
+BbtCardServicesHelper.prototype.getSignOff = function() {
+    var response = {};
+    response.step = 6;
+    this.cardServicesSession.step = response.step;
+    response.verbiage = prompts[response.step].signOff;
+    // this.cardServicesSession.launch = 'signOff';
+    return response;
+};
 
-    this.cardServicesSession = cardServicesSession;
 
-}
 
 /**
  * get Card Services Session Info Object.
@@ -272,4 +306,15 @@ function BbtCardServicesHelper(cardServicesSession) {
 BbtCardServicesHelper.prototype.getCardServicesSession = function () {
     return this.cardServicesSession
 };
+
+/**
+ * get Card Services Session Info Object.
+ * @returns {*}
+ */
+BbtCardServicesHelper.prototype.setCardServicesSession = function (cardServicesSession) {
+    this.cardServicesSession = cardServicesSession;
+};
+
+
+
 module.exports = BbtCardServicesHelper;

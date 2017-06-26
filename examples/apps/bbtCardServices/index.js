@@ -113,8 +113,10 @@ var getCurrentStep = function (request) {
  */
 bbtCardServicesApp.launch(function (request, response) {
     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
-    var prompt =  bbtCardServicesHelper.getLaunchPrompt();
-    response.say(prompt).shouldEndSession(false);
+    var respObj =  bbtCardServicesHelper.getLaunchPrompt();
+    // Update Session Information
+    setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
+    response.say(respObj.verbiage).shouldEndSession(false);
 });
 
 bbtCardServicesApp.intent('intentLostOrStolen', {
@@ -333,33 +335,6 @@ bbtCardServicesApp.intent('intentWithCardNumberOrZipCode', {
     return true;
 });
 
-// /**
-//  * Intent: Function for Blocking a Card
-//  */
-// bbtCardServicesApp.intent('intentWithZipCode', {
-//     'slots': {
-//         'zipCode': 'ZIP_CODE'
-//     },
-//     'utterances': [
-//         '{|it\'s} {-|zipCode}'
-//     ]
-// }, function (request, response) {
-//     console.log('[intentWithZipCode');
-//     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
-//
-//     var zipCode = request.slot('zipCode');
-//     console.log('[intentWithZipCode] - zipCode: ', zipCode);
-//
-//     var respobj = bbtCardServicesHelper.intentWithZipCode(zipCode);
-//     console.log('[intentWithZipCode] - response: ', respobj.verbiage);
-//
-//     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
-//
-//     // Return true if Synchronous call if not return false
-//     // Update Session Information
-//     response.say(respobj.verbiage).shouldEndSession(false).send();
-//     return true;
-// });
 
 /**
  * Intent: Default Amazon YES intent function for confirming before blocking a card
@@ -367,13 +342,30 @@ bbtCardServicesApp.intent('intentWithCardNumberOrZipCode', {
 bbtCardServicesApp.intent('AMAZON.YesIntent', {}, function (request, response) {
     console.log('[AMAZON.YesIntent]');
     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
-    var respobj = bbtCardServicesHelper.intentConfirmed();
+    var cardServicesSession = bbtCardServicesHelper.getCardServicesSession();
+    var respobj;
+    if (cardServicesSession.step === 4) {
+        respobj = bbtCardServicesHelper.intentConfirmed();
+    } else {
+        respobj = bbtCardServicesHelper.getLaunchPrompt('Y'); // Continue
+    }
+
     console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
     // Update Session Information
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(true).send();
+    response.say(respobj.verbiage).shouldEndSession(false).send();
     return true;
+});
+
+bbtCardServicesApp.intent('AMAZON.NoIntent', {}, function (request, response) {
+
+    console.log('[AMAZON.NoIntent]');
+    var bbtCardServicesHelper = getbbtCardServicesHelper(request);
+    var respObj = bbtCardServicesHelper.getSignOff();
+    response.say(respObj.verbiage).shouldEndSession(true).send();
+    return true;
+
 });
 
 
@@ -394,13 +386,13 @@ bbtCardServicesApp.intent('AMAZON.HelpIntent', {}, function (request, response) 
  */
 var cancelIntentFunction = function (request, response) {
     console.log('[AMAZON.CancelIntent/AMAZON.StopIntent]');
-    response.say('Your transaction has been cancelled. Thank you for using bb and t card services. Goodbye!').shouldEndSession(true);
+    response.say('Your transaction has been cancelled. Thank yor for banking with B B and T. Have a nice day!').shouldEndSession(true);
 };
 
 
 bbtCardServicesApp.intent('AMAZON.CancelIntent', {}, cancelIntentFunction);
 bbtCardServicesApp.intent('AMAZON.StopIntent', {}, cancelIntentFunction);
-bbtCardServicesApp.intent('AMAZON.NoIntent', {}, cancelIntentFunction);
+// bbtCardServicesApp.intent('AMAZON.NoIntent', {}, cancelIntentFunction);
 
 
 module.exports = bbtCardServicesApp;
