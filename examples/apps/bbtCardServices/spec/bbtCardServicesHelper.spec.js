@@ -408,7 +408,7 @@ describe("Test Block Card Function", function () {
             zipCode: '27604'
         });
         var response = bbtCardServicesHelper.getSignOff();
-        expect(response.verbiage).toEqual('Thank yor for banking with B B and T. Have a nice day!');
+        expect(response.verbiage).toEqual('Thank you for banking with b b and t. Have a nice day!');
         expect(response.step).toEqual(6);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(6);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('lost');

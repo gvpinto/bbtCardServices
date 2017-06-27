@@ -38,7 +38,12 @@ var getCardServicesSession = function (request) {
  */
 var setCardServicesSession = function (request, cardServicesSession) {
     var session = request.getSession();
+    if (_.isEmpty(cardServicesSession)) {
+        cardServicesSession = {};
+    }
+    console.log('cardServicesSession: ', cardServicesSession);
     session.set(SESSION_KEY, cardServicesSession);
+
 };
 
 var getbbtCardServicesHelper = function (request) {
@@ -161,7 +166,7 @@ bbtCardServicesApp.intent('intentBlock', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{I would like to} block my {-|cardType} card'
+        '{I would like|I\'ll like} {to} block my {-|cardType} card'
     ]
 }, function(request, response) {
     console.log('[intentBlock]');
@@ -190,7 +195,7 @@ bbtCardServicesApp.intent('intentUnblock', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{I would like to} unblock my {-|cardType} card'
+        '{I would like|I\'ll like} {to} unblock my {-|cardType} card'
     ]
 }, function(request, response) {
     console.log('[intentUnblock]');
@@ -214,14 +219,14 @@ bbtCardServicesApp.intent('intentUnblock', {
  * Intent: Action whether to block or cancel a credit or debit card
  */
 bbtCardServicesApp.intent('intentTravel', {
-    // 'slots': {
-    //
-    // },
+    'slots': {
+        'country': 'AMAZON.Country'
+    },
     'utterances': [
-        'I\'m going out of the country',
-        'I\'ll be travelling out of the country',
-        'I\'m going to Europe',
-        'I\'m going to Australia',
+        '{I\'m|I\'ll be} going out of the country',
+        'I\'ll be travelling {out of the country|internationally}',
+        '{I\'m|I\'ll be} going to {Europe|Australia|Asia}',
+        '{I\'m|I\'ll be} going to {-|country}'
     ]
 }, function(request, response) {
     console.log('[intentTravel]');
@@ -245,10 +250,15 @@ bbtCardServicesApp.intent('intentTravel', {
 bbtCardServicesApp.intent('intentTravelDates', {
     'slots': {
         'fromDate': 'AMAZON.DATE',
-        'toDate': 'AMAZON.DATE'
+        'toDate': 'AMAZON.DATE',
+        'country': 'AMAZON.Country'
     },
     'utterances': [
-        '{|I will be travelling} {|from} {-|fromDate} {|to|and will be back on} {-|toDate}'
+        '{I will be travelling} {out of the country|internationally} {from} {-|fromDate} {to|and will be back on} {-|toDate}',
+        '{I\'m|I\'ll be} going out of the country {from} {-|fromDate} {to|and will be back on} {-|toDate}',
+        '{I\'ll be travelling out of the country} {from} {-|fromDate} {to|and will be back on} {-|toDate}',
+        '{I\'m|I\'ll be} going to {Europe|Australia|Asia} {from} {-|fromDate} {to|and will be back on} {-|toDate}',,
+        '{I\'m|I\'ll be} going to {-|country} {from} {-|fromDate} {to|and will be back on} {-|toDate}',
     ]
 }, function(request, response) {
     console.log('[intentForTravelDates]');
@@ -278,7 +288,7 @@ bbtCardServicesApp.intent('intentWithCardType', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{-|cardType} {|card}'
+        '{-|cardType} {card}'
     ]
 }, function (request, response) {
     console.log('[intentWithCardType]');
@@ -346,15 +356,17 @@ bbtCardServicesApp.intent('AMAZON.YesIntent', {}, function (request, response) {
     var respobj;
     if (cardServicesSession.step === 4) {
         respobj = bbtCardServicesHelper.intentConfirmed();
+        console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
+        response.say(respobj.verbiage).shouldEndSession(false).send();
     } else {
         respobj = bbtCardServicesHelper.getLaunchPrompt('Y'); // Continue
+        console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
+        response.say(respobj.verbiage).shouldEndSession(true).send();
     }
-
-    console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
     // Update Session Information
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+
     return true;
 });
 

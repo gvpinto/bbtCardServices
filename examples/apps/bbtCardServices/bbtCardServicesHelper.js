@@ -54,7 +54,7 @@ var prompts = [
 
     // Step 6 - Sign off
     {
-        signOff: 'Thank yor for banking with B B and T. Have a nice day!'
+        signOff: 'Thank you for banking with b b and t. Have a nice day!'
     }
 
 ];
@@ -69,6 +69,10 @@ function applyTemplate(step, messageKey, action, cardType, cardNumber, zipCode, 
         fromDate: fromDate || '',
         toDate: toDate || ''
     });
+}
+
+function logsession() {
+    // console.log('Session Info: ', this.cardServicesSession);
 }
 
 /**
@@ -89,7 +93,7 @@ function BbtCardServicesHelper(cardServicesSession) {
 BbtCardServicesHelper.prototype.getLaunchPrompt = function (continueNext) {
     var response = {};
     response.step = 0;
-    console.log('this.cardServicesSession: ', this.cardServicesSession);
+
     if (this.cardServicesSession === undefined) {
         this.cardServicesSession = {};
     }
@@ -101,6 +105,7 @@ BbtCardServicesHelper.prototype.getLaunchPrompt = function (continueNext) {
     } else {
         response.verbiage = prompts[response.step].launchContinue;
     }
+    // logsession.call(this);
     return response;
 };
 
@@ -121,7 +126,7 @@ BbtCardServicesHelper.prototype.intentWithAction = function (action, cardType) {
         if (action === 'find') {
             action = 'missing';
         }
-        if (!_.isEmpty(cardType)) {
+        if (!_.isEmpty(cardType) && ['credit', 'debit',].indexOf(cardType) != -1) {
             response.step = 2;
             this.cardServicesSession.cardType = cardType;
             response.verbiage = applyTemplate(response.step, 'askForCardNumber', action, cardType);
@@ -140,6 +145,7 @@ BbtCardServicesHelper.prototype.intentWithAction = function (action, cardType) {
 
     this.cardServicesSession.step = response.step;
 
+    // logsession.call(this);
     return response;
 };
 
@@ -149,6 +155,8 @@ BbtCardServicesHelper.prototype.intentWithTravel = function (action) {
     this.cardServicesSession.action = action;
     response.verbiage = applyTemplate(response.step, 'askForTravelDates');
     this.cardServicesSession.step = response.step;
+
+    // logsession.call(this);
     return response;
 };
 /**
@@ -175,6 +183,8 @@ BbtCardServicesHelper.prototype.intentWithTravelDates = function (fromDate, toDa
     }
 
     this.cardServicesSession.step = response.step;
+
+    // logsession.call(this);
     return response;
 
 };
@@ -199,6 +209,8 @@ BbtCardServicesHelper.prototype.intentWithCardType = function (cardType) {
     }
 
     this.cardServicesSession.step = response.step;
+
+    // logsession.call(this);
     return response;
 };
 
@@ -219,6 +231,8 @@ BbtCardServicesHelper.prototype.intentWithCardNumber = function (cardNumber) {
 
     }
     this.cardServicesSession.step = response.step;
+
+    // logsession.call(this);
     return response;
 };
 
@@ -260,6 +274,8 @@ BbtCardServicesHelper.prototype.intentWithZipCode = function (zipCode) {
         response.verbiage = applyTemplate(response.step, 'askForZipCode', this.cardServicesSession.action, this.cardServicesSession.cardType, this.cardServicesSession.cardNumber);
     }
     this.cardServicesSession.step = response.step;
+
+    // logsession.call(this);
     return response;
 };
 
@@ -281,6 +297,8 @@ BbtCardServicesHelper.prototype.intentConfirmed = function () {
     }
 
     this.cardServicesSession.step = response.step;
+
+    // logsession.call(this);
     return response;
 };
 
@@ -294,6 +312,8 @@ BbtCardServicesHelper.prototype.getSignOff = function() {
     this.cardServicesSession.step = response.step;
     response.verbiage = prompts[response.step].signOff;
     // this.cardServicesSession.launch = 'signOff';
+
+    // logsession.call(this);
     return response;
 };
 
