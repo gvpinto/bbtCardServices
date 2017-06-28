@@ -54,6 +54,7 @@ var clearSession = function (request) {
     var session = request.getSession();
     if (!_.isEmpty(session)) {
         session.clear();
+        console.log('Session Cleared');
     }
 };
 
@@ -270,6 +271,7 @@ bbtCardServicesApp.intent('intentTravelDates', {
         '{I\'ll be travelling out of the country} {from} {-|fromDate} {to|and will be back on} {-|toDate}',
         '{I\'m|I\'ll be} going to {Europe|Australia|Asia} {from} {-|fromDate} {to|and will be back on} {-|toDate}',,
         '{I\'m|I\'ll be} going to {-|country} {from} {-|fromDate} {to|and will be back on} {-|toDate}',
+        '{|from} {-|fromDate} {to|and will be back on} {-|toDate}'
     ]
 }, function(request, response) {
     console.log('[intentTravelDates]');
