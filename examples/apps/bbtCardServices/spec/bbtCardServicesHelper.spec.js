@@ -295,7 +295,7 @@ describe("Test Block Card Function", function () {
         // Invalid Zip Code
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'block', cardType: 'credit', cardNumber: '2345'});
         var response = bbtCardServicesHelper.intentWithZipCode('27613');
-        expect(response.verbiage).toEqual('The Zip Code <say-as interpret-as="digits">27613</say-as> doesn\'t match with the provided credit card ending in <say-as interpret-as="digits">2345</say-as>. Please restate the Zip Code');
+        expect(response.verbiage).toEqual('The Zip Code <say-as interpret-as="digits">27613</say-as> doesn\'t match with the given credit card ending in <say-as interpret-as="digits">2345</say-as>. Please restate the Zip Code');
         expect(response.step).toEqual(3);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(3);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('block');
@@ -316,7 +316,7 @@ describe("Test Block Card Function", function () {
         // Invalid Zip Code
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit', cardNumber: '2345'});
         var response = bbtCardServicesHelper.intentWithZipCode('27613');
-        expect(response.verbiage).toEqual('The Zip Code <say-as interpret-as="digits">27613</say-as> doesn\'t match with the provided credit card ending in <say-as interpret-as="digits">2345</say-as>. Please restate the Zip Code');
+        expect(response.verbiage).toEqual('The Zip Code <say-as interpret-as="digits">27613</say-as> doesn\'t match with the given credit card ending in <say-as interpret-as="digits">2345</say-as>. Please restate the Zip Code');
         expect(response.step).toEqual(3);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(3);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');

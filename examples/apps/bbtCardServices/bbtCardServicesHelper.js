@@ -28,7 +28,7 @@ var prompts = [
     {
         askForZipCode: 'What\'s the Zip Code associated with the ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>',
 
-        invalidZipCodeAskAgain: 'The Zip Code <say-as interpret-as="digits">${zipCode}</say-as> doesn\'t match with the provided ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Please restate the Zip Code'
+        invalidZipCodeAskAgain: 'The Zip Code <say-as interpret-as="digits">${zipCode}</say-as> doesn\'t match with the given ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Please restate the Zip Code'
     },
 
     // Step 4 responses
