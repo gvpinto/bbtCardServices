@@ -51,10 +51,13 @@ var setCardServicesSession = function (request, cardServicesSession) {
  * @param request
  */
 var clearSession = function (request) {
+    console.log('[clearSession]');
     var session = request.getSession();
     if (!_.isEmpty(session)) {
         session.clear();
         console.log('Session Cleared');
+    } else {
+        console.log('No Session Exists');
     }
 };
 
