@@ -151,7 +151,7 @@ describe("Test Block Card Function", function () {
 
         var bbtCardServicesHelper = new BbtCardSevicesHelper({cardType: 'credit'});
         var response = bbtCardServicesHelper.intentWithTravelDates('travel', '2017-09-01', '2017-10-15');
-        expect(response.verbiage).toEqual('What\'s the last four digit of the credit card');
+        expect(response.verbiage).toEqual('What\'s the last four digit of the credit card you would like to use internationally');
         expect(response.step).toEqual(2);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(2);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
@@ -329,7 +329,7 @@ describe("Test Block Card Function", function () {
         // Valid for lost
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'lost', cardType: 'credit', cardNumber: '2345'});
         var response = bbtCardServicesHelper.intentWithZipCode('27604');
-        expect(response.verbiage).toEqual('Would you like a new card reissued in place of the lost credit card ending in <say-as interpret-as="digits">2345</say-as>. Please say yes to confirm, or no to cancel the transaction');
+        expect(response.verbiage).toEqual('Would you like a new card reissued in place of the lost credit card ending in <say-as interpret-as="digits">2345</say-as>, please say yes to confirm, or no to cancel the transaction');
         expect(response.step).toEqual(4);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(4);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('lost');
@@ -338,7 +338,7 @@ describe("Test Block Card Function", function () {
         // Valid for block
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'block', cardType: 'credit', cardNumber: '2345'});
         var response = bbtCardServicesHelper.intentWithZipCode('27604');
-        expect(response.verbiage).toEqual('Would you like to continue to block your credit card ending in <say-as interpret-as="digits">2345</say-as>. Please say yes to confirm, or no to cancel the transaction');
+        expect(response.verbiage).toEqual('Would you like to continue to block your credit card ending in <say-as interpret-as="digits">2345</say-as>, please say yes to confirm, or no to cancel the transaction');
         expect(response.step).toEqual(4);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(4);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('block');

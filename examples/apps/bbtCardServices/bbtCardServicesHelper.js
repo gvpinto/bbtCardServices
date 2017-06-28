@@ -21,6 +21,7 @@ var prompts = [
     // Step 2 responses
     {
         askForCardNumber: 'What\'s the last four digit of the ${cardType} card',
+        askForCardNumberForTravel: 'What\'s the last four digit of the ${cardType} card you would like to use internationally',
     },
 
     // Step 3 responses
@@ -32,9 +33,9 @@ var prompts = [
 
     // Step 4 responses
     {
-        confirmGeneral: 'Would you like to continue to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Please say yes to confirm, or no to cancel the transaction',
+        confirmGeneral: 'Would you like to continue to ${action} your ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>, please say yes to confirm, or no to cancel the transaction',
 
-        confirmReissue: 'Would you like a new card reissued in place of the ${action} ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>. Please say yes to confirm, or no to cancel the transaction',
+        confirmReissue: 'Would you like a new card reissued in place of the ${action} ${cardType} card ending in <say-as interpret-as="digits">${cardNumber}</say-as>, please say yes to confirm, or no to cancel the transaction',
 
         confirmTravel: 'Would you like to go ahead and notify bb and t that you\'ll be travelling internationally from <say-as interpret-as="date" format="ymd">${fromDate}</say-as> to <say-as interpret-as="date" format="ymd">${toDate}</say-as> for you card ending in <say-as interpret-as="digits">${cardNumber}</say-as>'
 
@@ -176,7 +177,7 @@ BbtCardServicesHelper.prototype.intentWithTravelDates = function (action, fromDa
         this.cardServicesSession.fromDate = fromDate;
         this.cardServicesSession.toDate = toDate;
         this.cardServicesSession.cardType = 'credit';
-        response.verbiage = applyTemplate(response.step, 'askForCardNumber', this.cardServicesSession.action, this.cardServicesSession.cardType);
+        response.verbiage = applyTemplate(response.step, 'askForCardNumberForTravel', this.cardServicesSession.action, this.cardServicesSession.cardType);
     } else {
         // bad
         response.step = 1;
