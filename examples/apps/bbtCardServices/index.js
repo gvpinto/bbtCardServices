@@ -46,6 +46,17 @@ var setCardServicesSession = function (request, cardServicesSession) {
 
 };
 
+/**
+ * Clear Session
+ * @param request
+ */
+var clearSession = function (request) {
+    var session = request.getSession();
+    if (!_.isEmpty(session)) {
+        session.clear();
+    }
+};
+
 var getbbtCardServicesHelper = function (request) {
     var bbtCardServicesHelper;
     if (_.isEmpty(request)) {
@@ -154,7 +165,7 @@ bbtCardServicesApp.intent('intentLostOrStolen', {
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
 
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+    response.say(respobj.verbiage).shouldEndSession(false);
     return true;
 });
 
@@ -183,7 +194,7 @@ bbtCardServicesApp.intent('intentBlock', {
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
 
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+    response.say(respobj.verbiage).shouldEndSession(false);
     return true;
 });
 
@@ -211,7 +222,7 @@ bbtCardServicesApp.intent('intentUnblock', {
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
 
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+    response.say(respobj.verbiage).shouldEndSession(false);
     return true;
 });
 
@@ -240,7 +251,7 @@ bbtCardServicesApp.intent('intentTravel', {
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
 
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+    response.say(respobj.verbiage).shouldEndSession(false);
     return true;
 });
 
@@ -261,22 +272,22 @@ bbtCardServicesApp.intent('intentTravelDates', {
         '{I\'m|I\'ll be} going to {-|country} {from} {-|fromDate} {to|and will be back on} {-|toDate}',
     ]
 }, function(request, response) {
-    console.log('[intentForTravelDates]');
+    console.log('[intentTravelDates]');
     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
 
     var fromDate = request.slot('fromDate');
-    console.log('[intentForTravelDates] - fromDate: ', fromDate);
+    console.log('[intentTravelDates] - fromDate: ', fromDate);
     var toDate = request.slot('toDate');
-    console.log('[intentForTravelDates] - toDate: ', toDate);
+    console.log('[intentTravelDates] - toDate: ', toDate);
 
-    var respobj = bbtCardServicesHelper.intentWithTravelDates(fromDate, toDate);
-    console.log('[intentForTravelDates] - response: ', respobj.verbiage);
+    var respobj = bbtCardServicesHelper.intentWithTravelDates('travel', fromDate, toDate);
+    console.log('[intentTravelDates] - response: ', respobj.verbiage);
 
     // Update Session Information
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
 
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+    response.say(respobj.verbiage).shouldEndSession(false);
     return true;
 });
 
@@ -288,7 +299,7 @@ bbtCardServicesApp.intent('intentWithCardType', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{-|cardType} {card}'
+        '{-|cardType} {|card}'
     ]
 }, function (request, response) {
     console.log('[intentWithCardType]');
@@ -305,7 +316,7 @@ bbtCardServicesApp.intent('intentWithCardType', {
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
 
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+    response.say(respobj.verbiage).shouldEndSession(false);
     return true;
 });
 
@@ -340,7 +351,7 @@ bbtCardServicesApp.intent('intentWithCardNumberOrZipCode', {
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
 
     // Return true if Synchronous call if not return false
-    response.say(respobj.verbiage).shouldEndSession(false).send();
+    response.say(respobj.verbiage).shouldEndSession(false);
 
     return true;
 });
@@ -357,11 +368,12 @@ bbtCardServicesApp.intent('AMAZON.YesIntent', {}, function (request, response) {
     if (cardServicesSession.step === 4) {
         respobj = bbtCardServicesHelper.intentConfirmed();
         console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
-        response.say(respobj.verbiage).shouldEndSession(false).send();
+        response.say(respobj.verbiage).shouldEndSession(false);
     } else {
         respobj = bbtCardServicesHelper.getLaunchPrompt('Y'); // Continue
         console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
-        response.say(respobj.verbiage).shouldEndSession(true).send();
+        clearSession(request);
+        response.say(respobj.verbiage).shouldEndSession(true);
     }
     // Update Session Information
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
@@ -375,7 +387,8 @@ bbtCardServicesApp.intent('AMAZON.NoIntent', {}, function (request, response) {
     console.log('[AMAZON.NoIntent]');
     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
     var respObj = bbtCardServicesHelper.getSignOff();
-    response.say(respObj.verbiage).shouldEndSession(true).send();
+    clearSession(request);
+    response.say(respObj.verbiage).shouldEndSession(true);
     return true;
 
 });
@@ -398,7 +411,10 @@ bbtCardServicesApp.intent('AMAZON.HelpIntent', {}, function (request, response) 
  */
 var cancelIntentFunction = function (request, response) {
     console.log('[AMAZON.CancelIntent/AMAZON.StopIntent]');
-    response.say('Your transaction has been cancelled. Thank yor for banking with B B and T. Have a nice day!').shouldEndSession(true);
+    var respText = 'Your request has been cancelled. Thank you for banking with B B and T. Have a nice day!';
+    console.log('[AMAZON.CancelIntent/AMAZON.StopIntent] - response: ', respText);
+    clearSession(request);
+    response.say(respText).shouldEndSession(true);
 };
 
 

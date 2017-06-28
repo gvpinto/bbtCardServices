@@ -149,8 +149,8 @@ describe("Test Block Card Function", function () {
 
     it("Test 4.2 - Step 2. Ask for Travel Dates Intent - Valid Dates", function () {
 
-        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel', cardType: 'credit'});
-        var response = bbtCardServicesHelper.intentWithTravelDates('2017-09-01', '2017-10-15');
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({cardType: 'credit'});
+        var response = bbtCardServicesHelper.intentWithTravelDates('travel', '2017-09-01', '2017-10-15');
         expect(response.verbiage).toEqual('What\'s the last four digit of the credit card');
         expect(response.step).toEqual(2);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(2);
@@ -163,22 +163,22 @@ describe("Test Block Card Function", function () {
 
     it("Test 4.3 - Step 2. Ask for Travel Dates Intent - Invalid Dates", function () {
 
-        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel'});
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({});
         var response = bbtCardServicesHelper.intentWithTravelDates(undefined, '2017-10-15');
         expect(response.verbiage).toEqual('What dates will you be travelling');
         expect(response.step).toEqual(1);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
-        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
 
-        var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel'});
+        var bbtCardServicesHelper = new BbtCardSevicesHelper({});
         var response = bbtCardServicesHelper.intentWithTravelDates(undefined, undefined);
         expect(response.verbiage).toEqual('What dates will you be travelling');
         expect(response.step).toEqual(1);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
-        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
+        expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
 
         var bbtCardServicesHelper = new BbtCardSevicesHelper({action: 'travel'});
-        var response = bbtCardServicesHelper.intentWithTravelDates('2017-09', '2017-10-15');
+        var response = bbtCardServicesHelper.intentWithTravelDates('travel', '2017-09', '2017-10-15');
         expect(response.verbiage).toEqual('What dates will you be travelling');
         expect(response.step).toEqual(1);
         expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);

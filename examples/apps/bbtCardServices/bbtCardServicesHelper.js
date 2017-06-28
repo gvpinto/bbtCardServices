@@ -165,8 +165,10 @@ BbtCardServicesHelper.prototype.intentWithTravel = function (action) {
  * @param toDate
  * @returns {{}}
  */
-BbtCardServicesHelper.prototype.intentWithTravelDates = function (fromDate, toDate) {
+BbtCardServicesHelper.prototype.intentWithTravelDates = function (action, fromDate, toDate) {
     var response = {};
+
+    this.cardServicesSession.action = action;
 
     if (!_.isEmpty(fromDate) && !_.isEmpty(toDate) && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(fromDate) && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(toDate)) {
         // Good
