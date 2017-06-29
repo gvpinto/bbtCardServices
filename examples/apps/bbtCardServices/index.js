@@ -181,7 +181,7 @@ bbtCardServicesApp.intent('intentBlock', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{I would like|I\'ll like} {to} block my {-|cardType} card'
+        '{|I would like|I\'ll like} {to} block my {-|cardType} card'
     ]
 }, function(request, response) {
     console.log('[intentBlock]');
@@ -210,7 +210,7 @@ bbtCardServicesApp.intent('intentUnblock', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{I would like|I\'ll like} {to} unblock my {-|cardType} card'
+        '{|I would like|I\'ll like} {to} unblock my {-|cardType} card'
     ]
 }, function(request, response) {
     console.log('[intentUnblock]');
@@ -370,20 +370,24 @@ bbtCardServicesApp.intent('AMAZON.YesIntent', {}, function (request, response) {
     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
     var cardServicesSession = bbtCardServicesHelper.getCardServicesSession();
     var respobj;
+    console.log('[AMAZON.YesIntent] - In Step: ', cardServicesSession.step);
     if (cardServicesSession.step === 4) {
+        console.log('[AMAZON.YesIntent] - Intent Confirmed');
         respobj = bbtCardServicesHelper.intentConfirmed();
         console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
-        response.say(respobj.verbiage).shouldEndSession(false);
+        // response.say(respobj.verbiage).shouldEndSession(false);
     } else {
+        console.log('[AMAZON.YesIntent] - Intent Launch Again');
         respobj = bbtCardServicesHelper.getLaunchPrompt('Y'); // Continue
         console.log('[AMAZON.YesIntent] - response: ', respobj.verbiage);
-        clearSession(request);
-        response.say(respobj.verbiage).shouldEndSession(true);
     }
-    // Update Session Information
-    setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
-    // Return true if Synchronous call if not return false
 
+
+    // Clear Session Information
+    clearSession(request);
+    response.say(respobj.verbiage).shouldEndSession(false);
+
+    // Return true if Synchronous call if not return false
     return true;
 });
 
