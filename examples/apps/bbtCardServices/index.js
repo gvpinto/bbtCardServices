@@ -11,6 +11,14 @@ var BbtCardServicesHelper = require('./bbtCardServicesHelper.js');
 
 var SESSION_KEY = "cardServiceSessionKey";
 
+var defaultCardServicesSession = function () {
+    return {
+        step: 0,
+        isAuth: false,
+        action: 'launch'
+    };
+};
+
 /**
  * Get Session Information
  * @param request
@@ -23,7 +31,7 @@ var getCardServicesSession = function (request) {
     var cardServicesSession = session.get(SESSION_KEY);
 
     if (_.isEmpty(cardServicesSession)) {
-        cardServicesSession = {};
+        cardServicesSession = defaultCardServicesSession();
         session.set(SESSION_KEY, cardServicesSession);
     }
 
@@ -37,34 +45,43 @@ var getCardServicesSession = function (request) {
  * @param cardServicesSession
  */
 var setCardServicesSession = function (request, cardServicesSession) {
+    console.log('[setCardServicesSession]');
     var session = request.getSession();
     if (_.isEmpty(cardServicesSession)) {
-        cardServicesSession = {};
+        cardServicesSession = defaultCardServicesSession();
     }
-    console.log('cardServicesSession: ', cardServicesSession);
+    console.log('[setCardServicesSession] - cardServicesSession: ', cardServicesSession);
     session.set(SESSION_KEY, cardServicesSession);
-
+    return cardServicesSession;
 };
 
 /**
  * Clear Session
  * @param request
  */
-var clearSession = function (request) {
+var clearSession = function (request, keepAuth) {
     console.log('[clearSession]');
     var session = request.getSession();
     if (!_.isEmpty(session)) {
         session.clear();
-        console.log('Session Cleared');
+        // Set a default card Services Session
+        var cardServicesSession = setCardServicesSession(request);
+        console.log('[clearSession] - keepAuth: ', keepAuth);
+        if (keepAuth) {
+            console.log('[clearSession] - setting the isAuth to true');
+            cardServicesSession.isAuth = true;
+        }
+        console.log('[clearSession] - Session Cleared');
     } else {
-        console.log('No Session Exists');
+        console.log('[clearSession] - No Session Exists');
     }
 };
 
 var getbbtCardServicesHelper = function (request) {
     var bbtCardServicesHelper;
     if (_.isEmpty(request)) {
-        bbtCardServicesHelper = new BbtCardServicesHelper();
+        throw ('Request is Empty');
+        // bbtCardServicesHelper = new BbtCardServicesHelper();
     } else {
         bbtCardServicesHelper = new BbtCardServicesHelper(getCardServicesSession(request));
     }
@@ -82,16 +99,6 @@ var setCardNumber = function (request, cardNumber) {
     setCardServicesSession(request, cardServicesSession);
 };
 
-/**
- * Set Card Type in the Session
- * @param request
- * @param cardType
- */
-var setCardCardType = function (request, cardType) {
-    var sessionInfo = getCardServicesSession(SESSION_KEY);
-    sessionInfo.cardType = cardType;
-    setCardServicesSession(request, sessionInfo);
-};
 
 /**
  * Set Process Step in the Session
@@ -138,6 +145,40 @@ bbtCardServicesApp.launch(function (request, response) {
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
     response.say(respObj.verbiage).shouldEndSession(false);
 });
+
+// bbtCardServicesApp.intent('intentPinAuth', {
+//     'slots': {
+//         'action': 'ACTION',
+//         'cardType': 'CARD_TYPE'
+//     },
+//     'utterances': [
+//         'I\'ve have {-|action} my {-|cardType} card',
+//         'My {-|cardType} was {-|action}',
+//         'I can\'t {-|action} my {-|cardType} card'
+//     ]
+// } ,function(request, response) {
+//     console.log('[intentPinAuth]');
+//     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
+//
+//
+//     var action = request.slot('action');
+//     console.log('[intentLostOrStolen] - action: ', action);
+//
+//     var cardType = request.slot('cardType');
+//     console.log('[intentLostOrStolen] - cardType: ', cardType);
+//
+//     // Action default to lost when the card is lost or stolen
+//     var respobj = bbtCardServicesHelper.intentPinAuth(action, cardType);
+//
+//     console.log('[intentLostOrStolen] - response: ', respobj.verbiage);
+//
+//     // Update Session Information
+//     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
+//
+//     // Return true if Synchronous call if not return false
+//     response.say(respobj.verbiage).shouldEndSession(false);
+//     return true;
+// });
 
 bbtCardServicesApp.intent('intentLostOrStolen', {
     'slots': {
@@ -328,7 +369,7 @@ bbtCardServicesApp.intent('intentWithCardType', {
 /**
  * Intent: Function for Blocking a Card
  */
-bbtCardServicesApp.intent('intentWithCardNumberOrZipCode', {
+bbtCardServicesApp.intent('intentWithCardNumberOrZipCodeOrPin', {
     'slots': {
         'numberSlot': 'AMAZON.NUMBER'
     },
@@ -336,21 +377,23 @@ bbtCardServicesApp.intent('intentWithCardNumberOrZipCode', {
         '{-|numberSlot}'
     ]
 }, function (request, response) {
-    console.log('[intentWithCardNumberOrZipCode]');
+    console.log('[intentWithCardNumberOrZipCodeOrPin]');
     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
     var cardServicesSession = bbtCardServicesHelper.getCardServicesSession();
 
     var numberSlot = request.slot('numberSlot');
-    console.log('[intentWithCardNumberOrZipCode] - numberSlot: ', numberSlot);
+    console.log('[intentWithCardNumberOrZipCodeOrPin] - numberSlot: ', numberSlot);
 
     var respobj;
-    if (cardServicesSession.step === 2) {
+    if (cardServicesSession.step === 0) {
+        respobj = bbtCardServicesHelper.intentPinAuth(numberSlot);
+    } else if (cardServicesSession.step === 2) {
         respobj = bbtCardServicesHelper.intentWithCardNumber(numberSlot);
     } else {
         respobj = bbtCardServicesHelper.intentWithZipCode(numberSlot);
     }
 
-    console.log('[intentWithCardNumber] - response: ', respobj.verbiage);
+    console.log('[intentWithCardNumberOrZipCodeOrPin] - response: ', respobj.verbiage);
 
     // Update Session Information
     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
@@ -384,7 +427,7 @@ bbtCardServicesApp.intent('AMAZON.YesIntent', {}, function (request, response) {
 
 
     // Clear Session Information
-    clearSession(request);
+    clearSession(request, true);
     response.say(respobj.verbiage).shouldEndSession(false);
 
     // Return true if Synchronous call if not return false

@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "alexa-app": "^4.0.1",
-    "jasmine": "^2.6.0",
     "lodash": "^4.17.4",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
@@ -20,6 +19,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-jasmine-nodejs": "^1.6.0",
     "jasmine-spec-reporter": "^4.1.0",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "jasmine": "^2.6.0"
   }
 }

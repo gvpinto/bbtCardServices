@@ -1,15 +1,55 @@
 var _ = require('lodash');
 
-var prompts = [{
-    test1: 'test message 1 ${message}'
-}, {
-    test2: 'test message 2 ${message}'
-}];
+// var BbtCardServicesHelper = require('./bbtCardServicesHelper.js');
+//
+//
+// var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
+// // var response = bbtCardServicesHelper.intentWithAction();
+// var response = bbtCardServicesHelper.getPrompts(0);
+// console.log('response: ', response);
+
+// =================================================
+// var index = require('./index.js');
+// var Mock = require('./spec/mock');
+//
+// var request, response;
+//
+// request = Mock.getRequest();
+// response = Mock.getResponse()
+//
+//
+//
+//
+// var intent = index.intents['intentBlock']["function"];
+// intent(request, response);
+// =================================================
+
+function TestFunction() {
+
+}
+TestFunction.prototype.testFunc = function() {
+    return "It Works";
+    this.testFunc2 = function() {
+        return "It works too!";
+    }
+}
+
+console.log(TestFunction.prototype.testFunc());
+console.log(TestFunction.testFunc2());
+
+// =================================================
 
 
-console.log(_.template(prompts[0]['test1'])({
-    'message': 'Hello'
-}));
+// var prompts = [{
+//     test1: 'test message 1 ${message}'
+// }, {
+//     test2: 'test message 2 ${message}'
+// }];
+//
+//
+// console.log(_.template(prompts[0]['test1'])({
+//     'message': 'Hello'
+// }));
 
 
 

@@ -7,9 +7,16 @@ var _ = require('lodash');
 var prompts = [
     // Step 0 responses
     {
-        launch: 'Welcome to b b and t\'s credit and debit card services. What would you like to do today?',
-        launchReprompt: 'How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country',
-        launchContinue: 'What else would you like to do today? To block a card, say, I would like to block my card, or for lost or stolen card say, I have lost my credit card, and for international travel say, I will be travelling out of the country.'
+        // launch: 'Welcome to b b and t\'s credit and debit card services. What would you like to do today?',
+        launch: 'Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.',
+
+        // launchReprompt: 'How would like to proceed? Here are few samples, I would like to unblock my credit card; my debit card was stolen; or I\'ll be travelling out of the country',
+
+        launchReprompt: 'Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.',
+
+        launchContinue: 'What else would you like to do today? To block a card, say, I would like to block my card, or for lost or stolen card say, I have lost my credit card, and for international travel say, I will be travelling out of the country.',
+
+        invalidPin: 'The pin number you gave me does not match. Please say your four digit pin to proceed.'
     },
 
     // Step 1 responses
@@ -17,6 +24,7 @@ var prompts = [
         askForCardType: 'Is it a credit or debit card',
         askForTravelDates: 'What dates will you be travelling'
     },
+
 
     // Step 2 responses
     {
@@ -88,6 +96,62 @@ function BbtCardServicesHelper(cardServicesSession) {
 }
 
 /**
+ * Store the request
+ * @param response
+ * @param cardServicesSession
+ * @returns {*}
+ */
+function storeActualIntent(response, cardServicesSession)  {
+
+    cardServicesSession.lastResponse = response.verbiage;
+    if (!_.isEmpty(cardServicesSession.action)) {
+        cardServicesSession.lastAction = cardServicesSession.action;
+    }
+    cardServicesSession.lastStep = response.step;
+    response.step = 0;
+    cardServicesSession.step = response.step;
+    response.verbiage = applyTemplate(response.step, 'launch');
+    return response;
+
+}
+
+/**
+ * Restore Actual Intent
+ * @param cardServicesSession
+ * @returns {{}}
+ */
+function restoreActualIntent(cardServicesSession)  {
+    var response = {};
+
+    cardServicesSession.step = cardServicesSession.lastStep;
+    cardServicesSession.action = cardServicesSession.lastAction;
+
+    response.step = cardServicesSession.step;
+    response.verbiage = cardServicesSession.lastResponse;
+
+    delete cardServicesSession.lastStep;
+    delete cardServicesSession.lastResponse;
+    delete cardServicesSession.lastAction;
+
+    return response;
+}
+
+/**
+ * Return prompts
+ * @param step
+ * @returns {*}
+ */
+BbtCardServicesHelper.prototype.getPrompts = function (step) {
+    if (_.isNumber(step) && step <= prompts.length) {
+        // Return specific prompt
+        return prompts[step];
+    } else {
+        // Return all prompts
+        return prompts;
+    }
+};
+
+/**
  * Return the Launch Prompt String
  * @returns {string}
  */
@@ -95,21 +159,34 @@ BbtCardServicesHelper.prototype.getLaunchPrompt = function (continueNext) {
     var response = {};
     response.step = 0;
 
-    if (this.cardServicesSession === undefined) {
-        this.cardServicesSession = {};
-    }
     this.cardServicesSession.step = response.step;
-    // this.cardServicesSession.launch = 'launch';
 
     if (continueNext === undefined) {
         response.verbiage = prompts[response.step].launch
     } else {
         response.verbiage = prompts[response.step].launchContinue;
     }
-    // logsession.call(this);
     return response;
 };
 
+
+/**
+ * Authenticate the user using the pin
+ * @param pin
+ */
+BbtCardServicesHelper.prototype.intentPinAuth = function(pin) {
+    var response = {};
+    if (!_.isEmpty(pin) && /^[0-9]{4}$/.test(pin) && pin === '1872') {
+        // Good Pin
+        this.cardServicesSession.isAuth = true;
+        response = restoreActualIntent(this.cardServicesSession);
+    } else {
+        // Bad pin
+        response.step = 0;
+        response.verbiage = applyTemplate(response.step, 'invalidPin');
+    }
+    return response;
+}
 
 /**
  * Intent with Action, moving to Step 1
@@ -140,15 +217,22 @@ BbtCardServicesHelper.prototype.intentWithAction = function (action, cardType) {
 
     } else {
         // Re prompt the use for action
-        response.step = 0;
+        response.step = 0; // Previous was 0
         response.verbiage = applyTemplate(response.step, 'launchReprompt', action);
+
     }
 
     this.cardServicesSession.step = response.step;
 
+    // Check for Authentication
+    if (!this.cardServicesSession.isAuth) {
+        response = storeActualIntent(response, this.cardServicesSession);
+    }
+
     // logsession.call(this);
     return response;
 };
+
 
 BbtCardServicesHelper.prototype.intentWithTravel = function (action) {
     var response = {};
@@ -157,7 +241,11 @@ BbtCardServicesHelper.prototype.intentWithTravel = function (action) {
     response.verbiage = applyTemplate(response.step, 'askForTravelDates');
     this.cardServicesSession.step = response.step;
 
-    // logsession.call(this);
+    // Check for Authentication
+    if (!this.cardServicesSession.isAuth) {
+        response = storeActualIntent(response, this.cardServicesSession);
+    }
+
     return response;
 };
 /**
@@ -187,7 +275,11 @@ BbtCardServicesHelper.prototype.intentWithTravelDates = function (action, fromDa
 
     this.cardServicesSession.step = response.step;
 
-    // logsession.call(this);
+    // Check for Authentication
+    if (!this.cardServicesSession.isAuth) {
+        response = storeActualIntent(response, this.cardServicesSession);
+    }
+
     return response;
 
 };
@@ -213,7 +305,6 @@ BbtCardServicesHelper.prototype.intentWithCardType = function (cardType) {
 
     this.cardServicesSession.step = response.step;
 
-    // logsession.call(this);
     return response;
 };
 
@@ -235,7 +326,6 @@ BbtCardServicesHelper.prototype.intentWithCardNumber = function (cardNumber) {
     }
     this.cardServicesSession.step = response.step;
 
-    // logsession.call(this);
     return response;
 };
 
@@ -278,7 +368,6 @@ BbtCardServicesHelper.prototype.intentWithZipCode = function (zipCode) {
     }
     this.cardServicesSession.step = response.step;
 
-    // logsession.call(this);
     return response;
 };
 
