@@ -1,4 +1,5 @@
 var _ = require('lodash');
+
 var BbtCardServicesHelper = require('../bbtCardServicesHelper');
 
 
@@ -14,9 +15,9 @@ function applyTemplate(prompts, step, messageKey, cardServicesSession) {
     });
 }
 
-describe("Test Card Services - With Authentication", function () {
+describe("With Authentication: ", function () {
 
-    it('Test - Get Prompts with Step & without Step', function () {
+    it('Get Prompts with Step & without Step', function () {
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
         var prompt = bbtCardServicesHelper.getPrompts(0);
         expect(prompt.launch).toBeDefined();
@@ -24,7 +25,7 @@ describe("Test Card Services - With Authentication", function () {
         expect(prompts.length).toBeGreaterThan(0);
     });
 
-    it('Test  intentPinAuth - block credit card with invalid pin', function () {
+    it('block credit card with invalid pin', function () {
 
         // Block Card Intent
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
@@ -41,7 +42,7 @@ describe("Test Card Services - With Authentication", function () {
 
     });
 
-    it('Test  intentPinAuth - block credit card with valid pin 1872', function () {
+    it('block credit card with valid pin 1872', function () {
 
         // Block Card Intent
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
@@ -63,7 +64,7 @@ describe("Test Card Services - With Authentication", function () {
 
     });
 
-    it('Test  intentPinAuth - unblock credit card with valid pin 1872', function () {
+    it('unblock credit card with valid pin 1872', function () {
 
         // Block Card Intent
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
@@ -85,7 +86,7 @@ describe("Test Card Services - With Authentication", function () {
 
     });
 
-    it('Test  intentPinAuth - lost debit card with valid pin 1872', function () {
+    it('lost debit card with valid pin 1872', function () {
 
         // Block Card Intent
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
@@ -104,6 +105,77 @@ describe("Test Card Services - With Authentication", function () {
         expect(cardServicesSession.cardType).toBe('debit');
         expect(bbtCardServicesHelper.getPrompts(response.step).askForCardNumber).toBeDefined();
         expect(response.verbiage).toBe(applyTemplate(bbtCardServicesHelper.getPrompts(), response.step, 'askForCardNumber', cardServicesSession));
+
+    });
+
+
+    it('lost card with valid pin 1872', function () {
+
+        // Block Card Intent
+        var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
+        var response = bbtCardServicesHelper.intentWithAction('lost');
+        var cardServicesSession = bbtCardServicesHelper.getCardServicesSession();
+        expect(cardServicesSession.action).toBe('lost');
+        expect(cardServicesSession.cardType).toBeUndefined();
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getPrompts(response.step).launch).toBeDefined();
+        expect(response.verbiage).toBe(bbtCardServicesHelper.getPrompts(response.step).launch);
+
+        // Authentication Intent and ask for Card Type
+        response = bbtCardServicesHelper.intentPinAuth('1872');
+        expect(response.step).toEqual(1);
+        expect(cardServicesSession.action).toBe('lost');
+        expect(cardServicesSession.cardType).toBeUndefined();
+        expect(bbtCardServicesHelper.getPrompts(response.step).askForCardType).toBeDefined();
+        expect(response.verbiage).toBe(applyTemplate(bbtCardServicesHelper.getPrompts(), response.step, 'askForCardType', cardServicesSession));
+
+        // Ask Card Number
+        response = bbtCardServicesHelper.intentWithCardType('debit');
+        expect(response.step).toEqual(2);
+        expect(cardServicesSession.action).toBe('lost');
+        expect(cardServicesSession.cardType).toBe('debit');
+        expect(bbtCardServicesHelper.getPrompts(response.step).askForCardNumber).toBeDefined();
+        expect(response.verbiage).toBe(applyTemplate(bbtCardServicesHelper.getPrompts(), response.step, 'askForCardNumber', cardServicesSession));
+
+    });
+
+
+    it('travel with dates', function () {
+
+        // Block Card Intent
+        var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
+        var response = bbtCardServicesHelper.intentWithTravelDates('travel', '2017-09-01', '2017-10-15');
+        var cardServicesSession = bbtCardServicesHelper.getCardServicesSession();
+        console.log('CardEssion: ', cardServicesSession);
+        expect(cardServicesSession.action).toBe('travel');
+        expect(cardServicesSession.cardType).toEqual('credit');
+        expect(cardServicesSession.fromDate).toEqual('2017-09-01')
+        expect(cardServicesSession.toDate).toEqual('2017-10-15');
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getPrompts(response.step).launch).toBeDefined();
+        expect(response.verbiage).toBe(bbtCardServicesHelper.getPrompts(response.step).launch);
+
+        // Authentication Intent and ask for Card Type
+        response = bbtCardServicesHelper.intentPinAuth('1872');
+        expect(response.step).toEqual(2);
+        console.log('CardEssion: ', cardServicesSession);
+        expect(cardServicesSession.action).toBe('travel');
+        expect(cardServicesSession.cardType).toEqual('credit');
+        expect(cardServicesSession.fromDate).toEqual('2017-09-01')
+        expect(cardServicesSession.toDate).toEqual('2017-10-15');
+        expect(bbtCardServicesHelper.getPrompts(response.step).askForCardNumberForTravel).toBeDefined();
+        expect(response.verbiage).toBe(applyTemplate(bbtCardServicesHelper.getPrompts(), response.step, 'askForCardNumberForTravel', cardServicesSession));
+
+        // Ask Card Number
+        response = bbtCardServicesHelper.intentWithCardNumber('4578');
+        expect(response.step).toEqual(3);
+        expect(cardServicesSession.action).toBe('travel');
+        expect(cardServicesSession.cardType).toEqual('credit');
+        expect(cardServicesSession.fromDate).toEqual('2017-09-01')
+        expect(cardServicesSession.toDate).toEqual('2017-10-15');
+        expect(cardServicesSession.cardNumber).toEqual('4578');
+        expect(bbtCardServicesHelper.getPrompts(response.step).askForZipCode).toBeDefined();
+        expect(response.verbiage).toBe(applyTemplate(bbtCardServicesHelper.getPrompts(), response.step, 'askForZipCode', cardServicesSession));
 
     });
 

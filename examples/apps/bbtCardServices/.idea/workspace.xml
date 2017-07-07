@@ -6,7 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b86a820-8bcd-4d33-b73c-81b448d99bae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/mock.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/testIntents.spec.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/utility.js" />
@@ -14,6 +13,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bbtCardServicesHelper.js" afterPath="$PROJECT_DIR$/bbtCardServicesHelper.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js" afterPath="$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js" afterPath="$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.js" afterPath="$PROJECT_DIR$/test.js" />
     </list>
@@ -39,8 +39,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="71" column="46" lean-forward="true" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+            <state relative-caret-position="358">
+              <caret line="328" column="55" lean-forward="true" selection-start-line="328" selection-start-column="55" selection-end-line="328" selection-end-column="55" />
               <folding>
                 <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
               </folding>
@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bbtCardServicesHelper.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bbtCardServicesHelper.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bbtCardServicesHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="221" column="0" lean-forward="true" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+            <state relative-caret-position="229">
+              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -61,18 +61,18 @@
       <file leaf-file-name="testIntents.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/testIntents.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="115" column="62" lean-forward="true" selection-start-line="115" selection-start-column="62" selection-end-line="115" selection-end-column="62" />
+            <state relative-caret-position="153">
+              <caret line="63" column="34" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bbtCardServicesHelper-auth.spec.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bbtCardServicesHelper-auth.spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="459">
+              <caret line="176" column="76" lean-forward="false" selection-start-line="176" selection-start-column="76" selection-end-line="176" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -91,10 +91,10 @@
       <file leaf-file-name="bbtCardServicesHelper.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="213" column="17" lean-forward="false" selection-start-line="213" selection-start-column="17" selection-end-line="213" selection-end-column="17" />
+            <state relative-caret-position="1389">
+              <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
               <folding>
-                <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
+                <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -104,13 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>{}</find>
-      <find>launc</find>
-      <find>getbbtCardServicesHelper</find>
-      <find>initial</find>
-      <find>intent(</find>
-      <find>intentWithAction</find>
-      <find>response.step</find>
       <find>aut</find>
       <find>this.</find>
       <find>BbtCardSevicesHelper({action</find>
@@ -121,7 +114,6 @@
       <find>toEqual(2)</find>
       <find>.action</find>
       <find>intent</find>
-      <find>'Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.'</find>
       <find>laun</find>
       <find>request</find>
       <find>Session</find>
@@ -134,6 +126,14 @@
       <find>setCardServicesSession</find>
       <find>Yes</find>
       <find>clear</find>
+      <find>cardTy</find>
+      <find>With Authentication Test</find>
+      <find>Test Card Services -</find>
+      <find>With Authentication lost card with valid pin 1872</find>
+      <find>lost card with valid pin 1872</find>
+      <find>travl</find>
+      <find>travel with dates</find>
+      <find>'Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.'</find>
     </findStrings>
     <replaceStrings>
       <replace>askForCardType</replace>
@@ -164,8 +164,8 @@
       <replace>BbtCardServicesHelper</replace>
       <replace>'Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.'</replace>
       <replace>toEqual(0)</replace>
-      <replace>'Is it a credit or debit card'</replace>
       <replace>.</replace>
+      <replace>'Is it a credit or debit card'</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -187,17 +187,17 @@
         <option value="$PROJECT_DIR$/spec/support/reporter.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="internal/process/next_tick.js" />
-        <option value="$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/spec/mock.js" />
         <option value="$PROJECT_DIR$/spec/utility.js" />
-        <option value="$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js" />
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/spec/testIntents.spec.js" />
+        <option value="$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js" />
         <option value="$PROJECT_DIR$/bbtCardServicesHelper.js" />
+        <option value="$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js" />
       </list>
     </option>
   </component>
@@ -552,7 +552,7 @@
       <workItem from="1497898527376" duration="43864000" />
       <workItem from="1498429571659" duration="25200000" />
       <workItem from="1498751319752" duration="43000" />
-      <workItem from="1499263195167" duration="32122000" />
+      <workItem from="1499263195167" duration="34853000" />
     </task>
     <task id="LOCAL-00001" summary="Release 1.0">
       <created>1497815198759</created>
@@ -642,7 +642,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168725000" />
+    <option name="totallyTimeSpent" value="171456000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -662,7 +662,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1774942" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25290024" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35846868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24562462" sideWeight="0.51459855" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24984913" sideWeight="0.48269895" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -755,7 +755,7 @@
         <state relative-caret-position="2002">
           <caret line="91" column="218" lean-forward="false" selection-start-line="91" selection-start-column="165" selection-end-line="91" selection-end-column="218" />
           <folding>
-            <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
+            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -775,7 +775,7 @@
         <state relative-caret-position="2288">
           <caret line="104" column="13" lean-forward="false" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
           <folding>
-            <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
+            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -818,7 +818,7 @@
         <state relative-caret-position="2288">
           <caret line="104" column="13" lean-forward="false" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
           <folding>
-            <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
+            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -869,7 +869,7 @@
         <state relative-caret-position="506">
           <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
           <folding>
-            <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
+            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -905,7 +905,7 @@
         <state relative-caret-position="1562">
           <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
           <folding>
-            <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
+            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -956,7 +956,7 @@
         <state relative-caret-position="1628">
           <caret line="74" column="50" lean-forward="false" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
           <folding>
-            <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
+            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1050,16 +1050,6 @@
         <state relative-caret-position="528">
           <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="213" column="17" lean-forward="false" selection-start-line="213" selection-start-column="17" selection-end-line="213" selection-end-column="17" />
-          <folding>
-            <marker date="1499306866000" expanded="true" signature="32573:32707" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1262,14 +1252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/support/jasmine.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1288,8 +1270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="71" column="46" lean-forward="true" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+        <state relative-caret-position="358">
+          <caret line="328" column="55" lean-forward="true" selection-start-line="328" selection-start-column="55" selection-end-line="328" selection-end-column="55" />
           <folding>
             <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
           </folding>
@@ -1298,16 +1280,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/testIntents.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="115" column="62" lean-forward="true" selection-start-line="115" selection-start-column="62" selection-end-line="115" selection-end-column="62" />
+        <state relative-caret-position="153">
+          <caret line="63" column="34" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bbtCardServicesHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="221" column="0" lean-forward="true" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state relative-caret-position="229">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1389">
+          <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
+          <folding>
+            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="176" column="76" lean-forward="false" selection-start-line="176" selection-start-column="76" selection-end-line="176" selection-end-column="76" />
           <folding />
         </state>
       </provider>

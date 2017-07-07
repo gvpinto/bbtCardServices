@@ -140,9 +140,9 @@ describe("Test Block Card Function", function () {
 
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch' });
         var response = bbtCardServicesHelper.intentWithTravel('travel');
-        expect(response.verbiage).toEqual('What dates will you be travelling');
-        expect(response.step).toEqual(1);
-        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(response.verbiage).toEqual('Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.');
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
 
     });
@@ -151,9 +151,9 @@ describe("Test Block Card Function", function () {
 
         var bbtCardServicesHelper = new BbtCardServicesHelper({cardType: 'credit'});
         var response = bbtCardServicesHelper.intentWithTravelDates('travel', '2017-09-01', '2017-10-15');
-        expect(response.verbiage).toEqual('What\'s the last four digit of the credit card you would like to use internationally');
-        expect(response.step).toEqual(2);
-        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(2);
+        expect(response.verbiage).toEqual('Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.');
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
         expect(bbtCardServicesHelper.getCardServicesSession().cardType).toEqual('credit');
         expect(bbtCardServicesHelper.getCardServicesSession().fromDate).toEqual('2017-09-01');
@@ -165,23 +165,23 @@ describe("Test Block Card Function", function () {
 
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch' });
         var response = bbtCardServicesHelper.intentWithTravelDates(undefined, '2017-10-15');
-        expect(response.verbiage).toEqual('What dates will you be travelling');
-        expect(response.step).toEqual(1);
-        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(response.verbiage).toEqual('Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.');
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
 
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch' });
         var response = bbtCardServicesHelper.intentWithTravelDates(undefined, undefined);
-        expect(response.verbiage).toEqual('What dates will you be travelling');
-        expect(response.step).toEqual(1);
-        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(response.verbiage).toEqual('Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.');
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual(undefined);
 
         var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch' , action: 'travel'});
         var response = bbtCardServicesHelper.intentWithTravelDates('travel', '2017-09', '2017-10-15');
-        expect(response.verbiage).toEqual('What dates will you be travelling');
-        expect(response.step).toEqual(1);
-        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(1);
+        expect(response.verbiage).toEqual('Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.');
+        expect(response.step).toEqual(0);
+        expect(bbtCardServicesHelper.getCardServicesSession().step).toEqual(0);
         expect(bbtCardServicesHelper.getCardServicesSession().action).toEqual('travel');
 
     });
