@@ -16,6 +16,8 @@ var prompts = [
 
         launchContinue: 'What else would you like to do today? To block a card, say, I would like to block my card, or for lost or stolen card say, I have lost my credit card, and for international travel say, I will be travelling out of the country.',
 
+        welcome: 'What would you like to do today. To block a card, say, I would like to block my card, or for lost or stolen card say, I have lost my credit card, and for international travel say, I will be travelling out of the country.',
+
         invalidPin: 'The pin number you gave me does not match. Please say your four digit pin to proceed.'
     },
 
@@ -123,11 +125,15 @@ function storeActualIntent(response, cardServicesSession)  {
 function restoreActualIntent(cardServicesSession)  {
     var response = {};
 
-    cardServicesSession.step = cardServicesSession.lastStep;
-    cardServicesSession.action = cardServicesSession.lastAction;
+    cardServicesSession.step = cardServicesSession.lastStep || 0;
+    cardServicesSession.action = cardServicesSession.lastAction || 'launch';
 
     response.step = cardServicesSession.step;
-    response.verbiage = cardServicesSession.lastResponse;
+    response.verbiage = cardServicesSession.lastResponse ||  applyTemplate(
+            cardServicesSession.step,
+            'welcome',
+            cardServicesSession.action
+        );
 
     delete cardServicesSession.lastStep;
     delete cardServicesSession.lastResponse;
@@ -176,13 +182,13 @@ BbtCardServicesHelper.prototype.getLaunchPrompt = function (continueNext) {
  */
 BbtCardServicesHelper.prototype.intentPinAuth = function(pin) {
     var response = {};
+    response.step = 0;
     if (!_.isEmpty(pin) && /^[0-9]{4}$/.test(pin) && pin === '1872') {
         // Good Pin
         this.cardServicesSession.isAuth = true;
         response = restoreActualIntent(this.cardServicesSession);
     } else {
         // Bad pin
-        response.step = 0;
         response.verbiage = applyTemplate(response.step, 'invalidPin');
     }
     return response;
