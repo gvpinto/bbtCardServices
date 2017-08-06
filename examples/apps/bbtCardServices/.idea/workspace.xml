@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/bbtCardServicesHelper.js" line="182" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/bbtCardServicesHelper.js" line="121" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/bbtCardServicesHelper.js" line="6" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b86a820-8bcd-4d33-b73c-81b448d99bae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/mock.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/utility.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Jasmine.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prompts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Archive.zip" afterPath="$PROJECT_DIR$/Archive.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/bbtCardServices.iml" afterPath="$PROJECT_DIR$/.idea/bbtCardServices.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bbtCardServicesHelper.js" afterPath="$PROJECT_DIR$/bbtCardServicesHelper.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
@@ -30,209 +33,27 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="bbtCardServices" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bbtCardServicesHelper.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bbtCardServicesHelper.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="388" column="48" lean-forward="false" selection-start-line="388" selection-start-column="48" selection-end-line="388" selection-end-column="48" />
-              <folding>
-                <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testIntents.spec.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/testIntents.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="131" column="90" lean-forward="false" selection-start-line="131" selection-start-column="90" selection-end-line="131" selection-end-column="90" />
+            <state relative-caret-position="8580">
+              <caret line="390" column="46" lean-forward="false" selection-start-line="390" selection-start-column="46" selection-end-line="390" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/alexa-app/index.js">
+      <file leaf-file-name="bbtCardServicesHelper.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bbtCardServicesHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="363" column="19" lean-forward="false" selection-start-line="363" selection-start-column="9" selection-end-line="363" selection-end-column="19" />
-              <folding>
-                <element signature="e#387#4894#0" expanded="false" />
-                <element signature="e#451#557#0" expanded="false" />
-                <element signature="e#491#553#0" expanded="false" />
-                <element signature="e#586#996#0" expanded="false" />
-                <element signature="e#655#775#0" expanded="false" />
-                <element signature="e#701#768#0" expanded="false" />
-                <element signature="e#781#975#0" expanded="false" />
-                <element signature="e#1023#1030#0" expanded="false" />
-                <element signature="e#1033#1159#0" expanded="false" />
-                <element signature="e#1077#1137#0" expanded="false" />
-                <element signature="e#1193#1653#0" expanded="false" />
-                <element signature="e#1258#1414#0" expanded="false" />
-                <element signature="e#1300#1407#0" expanded="false" />
-                <element signature="e#1326#1399#0" expanded="false" />
-                <element signature="e#1420#1632#0" expanded="false" />
-                <element signature="e#1685#3014#0" expanded="false" />
-                <element signature="e#1718#1853#0" expanded="false" />
-                <element signature="e#1754#1846#0" expanded="false" />
-                <element signature="e#1912#2542#0" expanded="false" />
-                <element signature="e#2253#2394#0" expanded="false" />
-                <element signature="e#2598#2760#0" expanded="false" />
-                <element signature="e#2627#2735#0" expanded="false" />
-                <element signature="e#2784#2810#0" expanded="false" />
-                <element signature="e#2896#2948#0" expanded="false" />
-                <element signature="e#3048#3141#0" expanded="false" />
-                <element signature="e#3084#3119#0" expanded="false" />
-                <element signature="e#3194#3325#0" expanded="false" />
-                <element signature="e#3266#3304#0" expanded="false" />
-                <element signature="e#3410#3465#0" expanded="false" />
-                <element signature="e#3524#3596#0" expanded="false" />
-                <element signature="e#3657#3884#0" expanded="false" />
-                <element signature="e#3690#3796#0" expanded="false" />
-                <element signature="e#3948#4063#0" expanded="false" />
-                <element signature="e#3970#4000#0" expanded="false" />
-                <element signature="e#4101#4262#0" expanded="false" />
-                <element signature="e#4134#4174#0" expanded="false" />
-                <element signature="e#4319#4539#0" expanded="false" />
-                <element signature="e#4352#4451#0" expanded="false" />
-                <element signature="e#4544#4564#0" expanded="false" />
-                <element signature="e#4618#4778#0" expanded="false" />
-                <element signature="e#4655#4704#0" expanded="false" />
-                <element signature="e#4710#4757#0" expanded="false" />
-                <element signature="e#4834#4891#0" expanded="false" />
-                <element signature="e#4928#6737#0" expanded="false" />
-                <element signature="e#4997#5334#0" expanded="false" />
-                <element signature="e#5007#5219#0" expanded="false" />
-                <element signature="e#5097#5169#0" expanded="false" />
-                <element signature="e#5175#5213#0" expanded="false" />
-                <element signature="e#5230#5330#0" expanded="false" />
-                <element signature="e#5361#5549#0" expanded="false" />
-                <element signature="e#5432#5510#0" expanded="false" />
-                <element signature="e#5585#5696#0" expanded="false" />
-                <element signature="e#5739#5857#0" expanded="false" />
-                <element signature="e#5960#6136#0" expanded="false" />
-                <element signature="e#6218#6257#0" expanded="false" />
-                <element signature="e#6290#6315#0" expanded="false" />
-                <element signature="e#6320#6340#0" expanded="false" />
-                <element signature="e#6690#6734#0" expanded="false" />
-                <element signature="e#6774#8472#0" expanded="false" />
-                <element signature="e#6861#6890#0" expanded="false" />
-                <element signature="e#6911#8061#0" expanded="false" />
-                <element signature="e#6941#6985#0" expanded="false" />
-                <element signature="e#7016#7213#0" expanded="false" />
-                <element signature="e#7024#7097#0" expanded="false" />
-                <element signature="e#7251#7294#0" expanded="false" />
-                <element signature="e#7327#7530#0" expanded="false" />
-                <element signature="e#7363#7479#0" expanded="false" />
-                <element signature="e#7421#7471#0" expanded="false" />
-                <element signature="e#7485#7524#0" expanded="false" />
-                <element signature="e#7792#7845#0" expanded="false" />
-                <element signature="e#8067#8246#0" expanded="false" />
-                <element signature="e#8132#8165#0" expanded="false" />
-                <element signature="e#8281#8469#0" expanded="false" />
-                <element signature="e#8287#8359#0" expanded="false" />
-                <element signature="e#8558#8632#0" expanded="false" />
-                <element signature="e#8691#9750#0" expanded="false" />
-                <element signature="e#9370#9429#0" expanded="false" />
-                <element signature="e#10107#10134#0" expanded="false" />
-                <element signature="e#10165#10192#0" expanded="false" />
-                <element signature="e#10728#10837#0" expanded="false" />
-                <element signature="e#10777#10832#0" expanded="false" />
-                <element signature="e#10938#11054#0" expanded="false" />
-                <element signature="e#10994#11049#0" expanded="false" />
-                <element signature="e#11217#11256#0" expanded="false" />
-                <element signature="e#11298#15994#0" expanded="false" />
-                <element signature="e#11633#12067#0" expanded="false" />
-                <element signature="e#11763#11894#0" expanded="false" />
-                <element signature="e#11936#12059#0" expanded="false" />
-                <element signature="e#11970#12017#0" expanded="false" />
-                <element signature="e#12114#12640#0" expanded="false" />
-                <element signature="e#12244#12375#0" expanded="false" />
-                <element signature="e#12417#12632#0" expanded="false" />
-                <element signature="e#12451#12519#0" expanded="false" />
-                <element signature="e#12684#13011#0" expanded="false" />
-                <element signature="e#12692#12760#0" expanded="false" />
-                <element signature="e#12891#12980#0" expanded="false" />
-                <element signature="e#13030#14817#0" expanded="false" />
-                <element signature="e#13062#14811#0" expanded="false" />
-                <element signature="e#13109#13451#0" expanded="false" />
-                <element signature="e#13283#13385#0" expanded="false" />
-                <element signature="e#13391#13441#0" expanded="false" />
-                <element signature="e#13494#13702#0" expanded="false" />
-                <element signature="e#13548#13633#0" expanded="false" />
-                <element signature="e#13639#13692#0" expanded="false" />
-                <element signature="e#13751#13912#0" expanded="false" />
-                <element signature="e#13811#13902#0" expanded="false" />
-                <element signature="e#13947#14288#0" expanded="false" />
-                <element signature="e#14178#14278#0" expanded="false" />
-                <element signature="e#14330#14746#0" expanded="false" />
-                <element signature="e#14628#14736#0" expanded="false" />
-                <element signature="e#14752#14803#0" expanded="false" />
-                <element signature="e#14841#14878#0" expanded="false" />
-                <element signature="e#14903#15988#0" expanded="false" />
-                <element signature="e#14948#15370#0" expanded="false" />
-                <element signature="e#15102#15360#0" expanded="false" />
-                <element signature="e#15140#15237#0" expanded="false" />
-                <element signature="e#15422#15625#0" expanded="false" />
-                <element signature="e#15462#15550#0" expanded="false" />
-                <element signature="e#15556#15617#0" expanded="false" />
-                <element signature="e#15656#15967#0" expanded="false" />
-                <element signature="e#15681#15770#0" expanded="false" />
-                <element signature="e#15802#15883#0" expanded="false" />
-                <element signature="e#15889#15959#0" expanded="false" />
-                <element signature="e#16082#16719#0" expanded="false" />
-                <element signature="e#16101#16132#0" expanded="false" />
-                <element signature="e#16202#16671#0" expanded="false" />
-                <element signature="e#16270#16309#0" expanded="false" />
-                <element signature="e#16406#16624#0" expanded="false" />
-                <element signature="e#16485#16616#0" expanded="false" />
-                <element signature="e#16521#16604#0" expanded="false" />
-                <element signature="e#16795#17380#0" expanded="false" />
-                <element signature="e#16884#17360#0" expanded="false" />
-                <element signature="e#16980#17354#0" expanded="false" />
-                <element signature="e#17040#17344#0" expanded="false" />
-                <element signature="e#17232#17332#0" expanded="false" />
-                <element signature="e#17474#17651#0" expanded="false" />
-                <element signature="e#17531#17574#0" expanded="false" />
-                <element signature="e#17608#17645#0" expanded="false" />
-                <element signature="e#17714#17744#0" expanded="false" />
-                <element signature="e#17749#17794#0" expanded="false" />
-                <element signature="e#18539#21109#0" expanded="false" />
-                <element signature="e#18589#18689#0" expanded="false" />
-                <element signature="e#19141#19397#0" expanded="false" />
-                <element signature="e#19422#19932#0" expanded="false" />
-                <element signature="e#19470#19924#0" expanded="false" />
-                <element signature="e#19527#19607#0" expanded="false" />
-                <element signature="e#19664#19748#0" expanded="false" />
-                <element signature="e#19754#19916#0" expanded="false" />
-                <element signature="e#19785#19904#0" expanded="false" />
-                <element signature="e#19961#20006#0" expanded="false" />
-                <element signature="e#20012#20066#0" expanded="false" />
-                <element signature="e#20151#21102#0" expanded="false" />
-                <element signature="e#20439#20540#0" expanded="false" />
-                <element signature="e#20465#20507#0" expanded="false" />
-                <element signature="e#20612#20815#0" expanded="false" />
-                <element signature="e#20859#20974#0" expanded="false" />
-                <element signature="e#21005#21094#0" expanded="false" />
-                <element signature="e#21174#21208#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="7106">
+              <caret line="323" column="22" lean-forward="false" selection-start-line="323" selection-start-column="22" selection-end-line="323" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -240,31 +61,49 @@
       <file leaf-file-name="bbtCardServicesHelper-auth.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="384" column="27" lean-forward="false" selection-start-line="384" selection-start-column="27" selection-end-line="384" selection-end-column="27" />
+            <state relative-caret-position="4862">
+              <caret line="221" column="98" lean-forward="false" selection-start-line="221" selection-start-column="98" selection-end-line="221" selection-end-column="98" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utility.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/utility.js">
+      <file leaf-file-name="testIntents.spec.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/testIntents.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="328">
+              <caret line="544" column="73" lean-forward="false" selection-start-line="544" selection-start-column="73" selection-end-line="544" selection-end-column="73" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bbtCardServicesHelper.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
+      <file leaf-file-name="prompts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prompts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1389">
-              <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
-              <folding>
-                <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-              </folding>
+            <state relative-caret-position="1364">
+              <caret line="62" column="66" lean-forward="false" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.js" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.9.5/core-modules/module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9878">
+              <caret line="449" column="5" lean-forward="false" selection-start-line="449" selection-start-column="5" selection-end-line="449" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mock.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/mock.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -273,68 +112,68 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>toEqual(2)</find>
-      <find>.action</find>
-      <find>laun</find>
-      <find>request</find>
-      <find>Session</find>
-      <find>session</find>
-      <find>response</find>
-      <find>intentPint</find>
-      <find>intentP</find>
-      <find>pinA</find>
-      <find>zip</find>
-      <find>setCardServicesSession</find>
-      <find>Yes</find>
-      <find>clear</find>
-      <find>cardTy</find>
-      <find>With Authentication Test</find>
-      <find>Test Card Services -</find>
-      <find>With Authentication lost card with valid pin 1872</find>
-      <find>lost card with valid pin 1872</find>
-      <find>travel with dates</find>
-      <find>'Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.'</find>
-      <find>travl</find>
-      <find>mis</find>
-      <find>intentCon</find>
-      <find>Tra</find>
-      <find>travel</find>
-      <find>Test intent Block with Credit Card With Valid Pin 1872 and Start again, but Start at Launch Intent</find>
-      <find>intentWithCardNumberOrZipCodeOrPin</find>
-      <find>intent</find>
-      <find>Test block intent with Credit Card With Valid Pin 1872 and Start again, but Start at Launch Intent</find>
+      <find>this.</find>
+      <find>applyTemplate(bbtCardServicesHelper.getPrompts(),</find>
+      <find>cance</find>
+      <find>p</find>
+      <find>pro</find>
+      <find>promt</find>
+      <find>prom</find>
+      <find>prompt</find>
+      <find>prompts</find>
+      <find>cancelin</find>
+      <find>cancel</find>
+      <find>'Would you like to go ahead and notify bb and t that you\'ll be travelling internationally from &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2017-09-01&lt;/say-as&gt; to &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2017-10-15&lt;/say-as&gt; for you card ending in &lt;say-as interpret-as=&quot;digits&quot;&gt;4782&lt;/say-as&gt;'</find>
+      <find>'Welcome to b b and t card services. Please be aware, that sensitive account information may be spoken while using this service, and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.'</find>
+      <find>'The given pin number does not match our records. Please say your four digit pin to proceed.'</find>
+      <find>What\'s the Zip Code associated with the credit card ending in &lt;say-as interpret-as=&quot;digits&quot;&gt;4782&lt;/say-as&gt;'</find>
+      <find>'Would you like to continue to block your credit card ending in &lt;say-as interpret-as=&quot;digits&quot;&gt;4782&lt;/say-as&gt;, please say yes to confirm, or no to cancel the transaction'</find>
+      <find>'Your request to block your credit card ending in &lt;say-as interpret-as=&quot;digits&quot;&gt;4782&lt;/say-as&gt; has been successfully completed. Is there anything else I can do for you today?'</find>
+      <find>blockCreditCardConfirmation</find>
+      <find>'Thank you for banking with b b and t. Have a nice day!'</find>
+      <find>'What\'s the last four digit of the credit card you would like to use internationally'</find>
+      <find>'askForCardNumberForTravelVerbiage</find>
+      <find>askForZipcodForCreditCardVerbiage</find>
+      <find>Test Cancel Intent - expect bb&amp;t pce</find>
+      <find>'What would you like to do today. To block a card, say, I would like to block my card, or for lost or stolen card say, I have lost my credit card, and for international travel say, I will be travelling out of the country.'</find>
+      <find>Test Cancel Intent - expect exit</find>
+      <find>'Is there anything else, I can help you with?'</find>
+      <find>Test block intent with Credit Card With Valid Pin 1872 and Continue again, expect bb&amp;t pce</find>
+      <find>exit</find>
+      <find>block card and authenticated given all the information - expect confirmed prompt</find>
+      <find>this.cardServicesSession.action</find>
     </findStrings>
     <replaceStrings>
-      <replace>askForCardType</replace>
-      <replace>askForCardNumber</replace>
-      <replace>askForZipCode</replace>
-      <replace>] -</replace>
-      <replace>console.log('[</replace>
-      <replace>intentBlockAction</replace>
-      <replace>(['</replace>
-      <replace>(['s</replace>
-      <replace>intentLostOrStolen</replace>
-      <replace>intentBlock</replace>
-      <replace>intentUnblock</replace>
-      <replace>toEqual</replace>
-      <replace>intentTravel</replace>
-      <replace>intentForTravelDates</replace>
-      <replace>intentWithTravelDates</replace>
-      <replace>Is there anything else I can do for you today?</replace>
-      <replace>intentTravelDates</replace>
-      <replace>{</replace>
-      <replace>, p</replace>
-      <replace>given</replace>
-      <replace>BbtCardSevicesHelper({isAuth: false})</replace>
-      <replace>BbtCardSevicesHelper({isAuth: false, action</replace>
-      <replace>BbtCardSevicesHelper({isAuth: false, action: 'launch',</replace>
-      <replace>BbtCardSevicesHelper({isAuth: false, action: 'launch'</replace>
-      <replace>}</replace>
-      <replace>BbtCardServicesHelper</replace>
-      <replace>'Welcome to b b and t card services. Please be aware that sensitive account information may be spoken while using this service and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.'</replace>
       <replace>toEqual(0)</replace>
       <replace>'Is it a credit or debit card'</replace>
+      <replace>'Welcome to b b and t card services. Please be aware, that sensitive account information may be spoken while using this service, and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.'</replace>
       <replace>.</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'launch', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'askForCardType', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'reissueConfirmation', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'generalConfirmation', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'travelConfirmation', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'askForCardNumber', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'askForZipCode', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'confirmTravel', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'confirmGeneral', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>Welcome to b b and t card services. Please be aware, that sensitive account information may be spoken while using this service, and it is possible that the information may be overheard by others around you. Please say your four digit pin to proceed.</replace>
+      <replace>promptsObj.applyTemplateOnObj(</replace>
+      <replace>promptsObj.applyTemplate</replace>
+      <replace>promptsObj.applyTemplateOnObj(bbtCardServicesHelper.getCardServicesSession().step, 'confirmReissue', bbtCardServicesHelper.getCardServicesSession())</replace>
+      <replace>confirmTravelVerbiage</replace>
+      <replace>welcomeVerbiage</replace>
+      <replace>askForPinAgainVerbiage</replace>
+      <replace>askForZipcodForCreditCardVerbiage</replace>
+      <replace>askToConfirmBlockCreditCardVerbiage</replace>
+      <replace>blockCreditCardConfirmation</replace>
+      <replace>blockCreditCardConfirmationVerbiage</replace>
+      <replace>signOffVerbiage</replace>
+      <replace>askForCardNumberForTravelVerbiage</replace>
+      <replace>askForZipcodeForCreditCardVerbiage</replace>
+      <replace>askWhatCanBeDoneTodayVerbiage</replace>
+      <replace>bbtpceVerbiage</replace>
+      <replace>action</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -356,17 +195,19 @@
         <option value="$PROJECT_DIR$/spec/support/reporter.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="internal/process/next_tick.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/spec/mock.js" />
         <option value="$PROJECT_DIR$/spec/utility.js" />
+        <option value="$PROJECT_DIR$/helper.js" />
         <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/prompts.js" />
+        <option value="$PROJECT_DIR$/spec/testIntents.spec.js" />
         <option value="$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js" />
         <option value="$PROJECT_DIR$/bbtCardServicesHelper.js" />
-        <option value="$PROJECT_DIR$/spec/testIntents.spec.js" />
       </list>
     </option>
   </component>
@@ -379,6 +220,7 @@
     <exe-path />
     <annotation-enable>false</annotation-enable>
     <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -432,71 +274,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bbtCardServices" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -506,7 +285,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="$USER_HOME$/.nvm/versions/v6.10.1/bin/node" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="javascript.nodejs.core.library.configured.version" value="6.9.5" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/../../../node_modules/jasmine" />
   </component>
@@ -531,15 +310,59 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.test">
-    <configuration default="false" name="test" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="test" />
-      </scripts>
-      <node-interpreter value="project" />
+    <configuration name="BB&amp;T Bank Card Services" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/../../">
+      <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
+        <option name="envVars">
+          <list />
+        </option>
+        <option name="extraHosts">
+          <list />
+        </option>
+        <option name="links">
+          <list />
+        </option>
+        <option name="networkDisabled" value="false" />
+        <option name="networkMode" value="bridge" />
+        <option name="portBindings">
+          <list />
+        </option>
+        <option name="publishAllPorts" value="false" />
+        <option name="version" value="1" />
+        <option name="volumeBindings">
+          <list />
+        </option>
+      </EXTENSION>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
       <envs />
-      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="$PROJECT_DIR$/../../server.js" working-dir="$PROJECT_DIR$/../../">
+      <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
+        <option name="envVars">
+          <list />
+        </option>
+        <option name="extraHosts">
+          <list />
+        </option>
+        <option name="links">
+          <list />
+        </option>
+        <option name="networkDisabled" value="false" />
+        <option name="networkMode" value="bridge" />
+        <option name="portBindings">
+          <list />
+        </option>
+        <option name="publishAllPorts" value="false" />
+        <option name="version" value="1" />
+        <option name="volumeBindings">
+          <list />
+        </option>
+      </EXTENSION>
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
@@ -569,30 +392,6 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="$PROJECT_DIR$/../../server.js" working-dir="$PROJECT_DIR$/../../">
-      <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
-        <option name="envVars">
-          <list />
-        </option>
-        <option name="extraHosts">
-          <list />
-        </option>
-        <option name="links">
-          <list />
-        </option>
-        <option name="networkDisabled" value="false" />
-        <option name="networkMode" value="bridge" />
-        <option name="portBindings">
-          <list />
-        </option>
-        <option name="publishAllPorts" value="false" />
-        <option name="version" value="1" />
-        <option name="volumeBindings">
-          <list />
-        </option>
-      </EXTENSION>
-      <method />
-    </configuration>
     <configuration default="true" type="NodeunitConfigurationType" factoryName="Nodeunit">
       <setting name="nodePath" value="project" />
       <envs />
@@ -606,15 +405,6 @@
       <option name="cucumberJsArguments" value="" />
       <option name="executablePath" />
       <option name="filePath" />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -637,31 +427,16 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration default="false" name="BB&amp;T Bank Card Services" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/../../">
-      <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
-        <option name="envVars">
-          <list />
-        </option>
-        <option name="extraHosts">
-          <list />
-        </option>
-        <option name="links">
-          <list />
-        </option>
-        <option name="networkDisabled" value="false" />
-        <option name="networkMode" value="bridge" />
-        <option name="portBindings">
-          <list />
-        </option>
-        <option name="publishAllPorts" value="false" />
-        <option name="version" value="1" />
-        <option name="volumeBindings">
-          <list />
-        </option>
-      </EXTENSION>
-      <method />
+    <configuration name="test" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
     </configuration>
-    <configuration default="false" name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="test.js" working-dir="$PROJECT_DIR$">
+    <configuration name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="test.js" working-dir="$PROJECT_DIR$">
       <EXTENSION ID="com.jetbrains.nodejs.remote.docker.NodeJSDockerRunConfigurationExtension">
         <option name="envVars">
           <list />
@@ -683,7 +458,6 @@
           <list />
         </option>
       </EXTENSION>
-      <method />
     </configuration>
     <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Node.js.BB&amp;T Bank Card Services" />
@@ -721,7 +495,10 @@
       <workItem from="1497898527376" duration="43864000" />
       <workItem from="1498429571659" duration="25200000" />
       <workItem from="1498751319752" duration="43000" />
-      <workItem from="1499263195167" duration="43435000" />
+      <workItem from="1499263195167" duration="62412000" />
+      <workItem from="1499619089161" duration="7353000" />
+      <workItem from="1502029202173" duration="77000" />
+      <workItem from="1502029316509" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="Release 1.0">
       <created>1497815198759</created>
@@ -811,7 +588,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180038000" />
+    <option name="totallyTimeSpent" value="206476000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -823,27 +600,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="980" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="980" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24562462" sideWeight="0.48540145" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1997586" sideWeight="0.48540145" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1774942" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17401393" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24562462" sideWeight="0.51459855" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24984913" sideWeight="0.48269895" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24562462" sideWeight="0.51384085" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30394432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28455284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30394432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -854,10 +632,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1774942" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43967518" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.79930395" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24562462" sideWeight="0.51459855" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24562462" sideWeight="0.48540145" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23174411" sideWeight="0.48540145" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24984913" sideWeight="0.48269895" order="1" side_tool="false" content_ui="tabs" />
@@ -867,7 +645,7 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -891,71 +669,35 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/bbtCardServicesHelper.js</url>
-          <line>150</line>
-          <properties />
+          <line>89</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test.js</url>
           <line>23</line>
-          <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/index.js</url>
           <line>28</line>
-          <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/spec/testIntents.spec.js</url>
-          <line>56</line>
-          <properties />
+          <line>76</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test.js</url>
+          <line>48</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="91" column="218" lean-forward="false" selection-start-line="91" selection-start-column="165" selection-end-line="91" selection-end-column="218" />
-          <folding>
-            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5104">
-          <caret line="232" column="8" lean-forward="false" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
-          <folding>
-            <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2288">
-          <caret line="104" column="13" lean-forward="false" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
-          <folding>
-            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesApp.pec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -976,9 +718,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5104">
           <caret line="232" column="8" lean-forward="false" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
-          <folding>
-            <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -986,9 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2288">
           <caret line="104" column="13" lean-forward="false" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
-          <folding>
-            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,9 +756,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,9 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,9 +794,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3674">
           <caret line="167" column="33" lean-forward="false" selection-start-line="167" selection-start-column="33" selection-end-line="167" selection-end-column="33" />
-          <folding>
-            <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1073,9 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1562">
           <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
-          <folding>
-            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1106,9 +833,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3674">
           <caret line="167" column="33" lean-forward="false" selection-start-line="167" selection-start-column="33" selection-end-line="167" selection-end-column="33" />
-          <folding>
-            <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,9 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1628">
           <caret line="74" column="50" lean-forward="false" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
-          <folding>
-            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1150,9 +872,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="3" selection-end-line="39" selection-end-column="6" />
-          <folding>
-            <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1218,31 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.9.5/core-modules/module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9856">
-          <caret line="448" column="3" lean-forward="false" selection-start-line="448" selection-start-column="3" selection-end-line="448" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/mock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1250,25 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1389">
-          <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
-          <folding>
-            <marker date="1499391573000" expanded="true" signature="33592:33726" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1276,15 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="384" column="27" lean-forward="false" selection-start-line="384" selection-start-column="27" selection-end-line="384" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1292,191 +959,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
           <caret line="363" column="19" lean-forward="false" selection-start-line="363" selection-start-column="9" selection-end-line="363" selection-end-column="19" />
-          <folding>
-            <element signature="e#387#4894#0" expanded="false" />
-            <element signature="e#451#557#0" expanded="false" />
-            <element signature="e#491#553#0" expanded="false" />
-            <element signature="e#586#996#0" expanded="false" />
-            <element signature="e#655#775#0" expanded="false" />
-            <element signature="e#701#768#0" expanded="false" />
-            <element signature="e#781#975#0" expanded="false" />
-            <element signature="e#1023#1030#0" expanded="false" />
-            <element signature="e#1033#1159#0" expanded="false" />
-            <element signature="e#1077#1137#0" expanded="false" />
-            <element signature="e#1193#1653#0" expanded="false" />
-            <element signature="e#1258#1414#0" expanded="false" />
-            <element signature="e#1300#1407#0" expanded="false" />
-            <element signature="e#1326#1399#0" expanded="false" />
-            <element signature="e#1420#1632#0" expanded="false" />
-            <element signature="e#1685#3014#0" expanded="false" />
-            <element signature="e#1718#1853#0" expanded="false" />
-            <element signature="e#1754#1846#0" expanded="false" />
-            <element signature="e#1912#2542#0" expanded="false" />
-            <element signature="e#2253#2394#0" expanded="false" />
-            <element signature="e#2598#2760#0" expanded="false" />
-            <element signature="e#2627#2735#0" expanded="false" />
-            <element signature="e#2784#2810#0" expanded="false" />
-            <element signature="e#2896#2948#0" expanded="false" />
-            <element signature="e#3048#3141#0" expanded="false" />
-            <element signature="e#3084#3119#0" expanded="false" />
-            <element signature="e#3194#3325#0" expanded="false" />
-            <element signature="e#3266#3304#0" expanded="false" />
-            <element signature="e#3410#3465#0" expanded="false" />
-            <element signature="e#3524#3596#0" expanded="false" />
-            <element signature="e#3657#3884#0" expanded="false" />
-            <element signature="e#3690#3796#0" expanded="false" />
-            <element signature="e#3948#4063#0" expanded="false" />
-            <element signature="e#3970#4000#0" expanded="false" />
-            <element signature="e#4101#4262#0" expanded="false" />
-            <element signature="e#4134#4174#0" expanded="false" />
-            <element signature="e#4319#4539#0" expanded="false" />
-            <element signature="e#4352#4451#0" expanded="false" />
-            <element signature="e#4544#4564#0" expanded="false" />
-            <element signature="e#4618#4778#0" expanded="false" />
-            <element signature="e#4655#4704#0" expanded="false" />
-            <element signature="e#4710#4757#0" expanded="false" />
-            <element signature="e#4834#4891#0" expanded="false" />
-            <element signature="e#4928#6737#0" expanded="false" />
-            <element signature="e#4997#5334#0" expanded="false" />
-            <element signature="e#5007#5219#0" expanded="false" />
-            <element signature="e#5097#5169#0" expanded="false" />
-            <element signature="e#5175#5213#0" expanded="false" />
-            <element signature="e#5230#5330#0" expanded="false" />
-            <element signature="e#5361#5549#0" expanded="false" />
-            <element signature="e#5432#5510#0" expanded="false" />
-            <element signature="e#5585#5696#0" expanded="false" />
-            <element signature="e#5739#5857#0" expanded="false" />
-            <element signature="e#5960#6136#0" expanded="false" />
-            <element signature="e#6218#6257#0" expanded="false" />
-            <element signature="e#6290#6315#0" expanded="false" />
-            <element signature="e#6320#6340#0" expanded="false" />
-            <element signature="e#6690#6734#0" expanded="false" />
-            <element signature="e#6774#8472#0" expanded="false" />
-            <element signature="e#6861#6890#0" expanded="false" />
-            <element signature="e#6911#8061#0" expanded="false" />
-            <element signature="e#6941#6985#0" expanded="false" />
-            <element signature="e#7016#7213#0" expanded="false" />
-            <element signature="e#7024#7097#0" expanded="false" />
-            <element signature="e#7251#7294#0" expanded="false" />
-            <element signature="e#7327#7530#0" expanded="false" />
-            <element signature="e#7363#7479#0" expanded="false" />
-            <element signature="e#7421#7471#0" expanded="false" />
-            <element signature="e#7485#7524#0" expanded="false" />
-            <element signature="e#7792#7845#0" expanded="false" />
-            <element signature="e#8067#8246#0" expanded="false" />
-            <element signature="e#8132#8165#0" expanded="false" />
-            <element signature="e#8281#8469#0" expanded="false" />
-            <element signature="e#8287#8359#0" expanded="false" />
-            <element signature="e#8558#8632#0" expanded="false" />
-            <element signature="e#8691#9750#0" expanded="false" />
-            <element signature="e#9370#9429#0" expanded="false" />
-            <element signature="e#10107#10134#0" expanded="false" />
-            <element signature="e#10165#10192#0" expanded="false" />
-            <element signature="e#10728#10837#0" expanded="false" />
-            <element signature="e#10777#10832#0" expanded="false" />
-            <element signature="e#10938#11054#0" expanded="false" />
-            <element signature="e#10994#11049#0" expanded="false" />
-            <element signature="e#11217#11256#0" expanded="false" />
-            <element signature="e#11298#15994#0" expanded="false" />
-            <element signature="e#11633#12067#0" expanded="false" />
-            <element signature="e#11763#11894#0" expanded="false" />
-            <element signature="e#11936#12059#0" expanded="false" />
-            <element signature="e#11970#12017#0" expanded="false" />
-            <element signature="e#12114#12640#0" expanded="false" />
-            <element signature="e#12244#12375#0" expanded="false" />
-            <element signature="e#12417#12632#0" expanded="false" />
-            <element signature="e#12451#12519#0" expanded="false" />
-            <element signature="e#12684#13011#0" expanded="false" />
-            <element signature="e#12692#12760#0" expanded="false" />
-            <element signature="e#12891#12980#0" expanded="false" />
-            <element signature="e#13030#14817#0" expanded="false" />
-            <element signature="e#13062#14811#0" expanded="false" />
-            <element signature="e#13109#13451#0" expanded="false" />
-            <element signature="e#13283#13385#0" expanded="false" />
-            <element signature="e#13391#13441#0" expanded="false" />
-            <element signature="e#13494#13702#0" expanded="false" />
-            <element signature="e#13548#13633#0" expanded="false" />
-            <element signature="e#13639#13692#0" expanded="false" />
-            <element signature="e#13751#13912#0" expanded="false" />
-            <element signature="e#13811#13902#0" expanded="false" />
-            <element signature="e#13947#14288#0" expanded="false" />
-            <element signature="e#14178#14278#0" expanded="false" />
-            <element signature="e#14330#14746#0" expanded="false" />
-            <element signature="e#14628#14736#0" expanded="false" />
-            <element signature="e#14752#14803#0" expanded="false" />
-            <element signature="e#14841#14878#0" expanded="false" />
-            <element signature="e#14903#15988#0" expanded="false" />
-            <element signature="e#14948#15370#0" expanded="false" />
-            <element signature="e#15102#15360#0" expanded="false" />
-            <element signature="e#15140#15237#0" expanded="false" />
-            <element signature="e#15422#15625#0" expanded="false" />
-            <element signature="e#15462#15550#0" expanded="false" />
-            <element signature="e#15556#15617#0" expanded="false" />
-            <element signature="e#15656#15967#0" expanded="false" />
-            <element signature="e#15681#15770#0" expanded="false" />
-            <element signature="e#15802#15883#0" expanded="false" />
-            <element signature="e#15889#15959#0" expanded="false" />
-            <element signature="e#16082#16719#0" expanded="false" />
-            <element signature="e#16101#16132#0" expanded="false" />
-            <element signature="e#16202#16671#0" expanded="false" />
-            <element signature="e#16270#16309#0" expanded="false" />
-            <element signature="e#16406#16624#0" expanded="false" />
-            <element signature="e#16485#16616#0" expanded="false" />
-            <element signature="e#16521#16604#0" expanded="false" />
-            <element signature="e#16795#17380#0" expanded="false" />
-            <element signature="e#16884#17360#0" expanded="false" />
-            <element signature="e#16980#17354#0" expanded="false" />
-            <element signature="e#17040#17344#0" expanded="false" />
-            <element signature="e#17232#17332#0" expanded="false" />
-            <element signature="e#17474#17651#0" expanded="false" />
-            <element signature="e#17531#17574#0" expanded="false" />
-            <element signature="e#17608#17645#0" expanded="false" />
-            <element signature="e#17714#17744#0" expanded="false" />
-            <element signature="e#17749#17794#0" expanded="false" />
-            <element signature="e#18539#21109#0" expanded="false" />
-            <element signature="e#18589#18689#0" expanded="false" />
-            <element signature="e#19141#19397#0" expanded="false" />
-            <element signature="e#19422#19932#0" expanded="false" />
-            <element signature="e#19470#19924#0" expanded="false" />
-            <element signature="e#19527#19607#0" expanded="false" />
-            <element signature="e#19664#19748#0" expanded="false" />
-            <element signature="e#19754#19916#0" expanded="false" />
-            <element signature="e#19785#19904#0" expanded="false" />
-            <element signature="e#19961#20006#0" expanded="false" />
-            <element signature="e#20012#20066#0" expanded="false" />
-            <element signature="e#20151#21102#0" expanded="false" />
-            <element signature="e#20439#20540#0" expanded="false" />
-            <element signature="e#20465#20507#0" expanded="false" />
-            <element signature="e#20612#20815#0" expanded="false" />
-            <element signature="e#20859#20974#0" expanded="false" />
-            <element signature="e#21005#21094#0" expanded="false" />
-            <element signature="e#21174#21208#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/spec/fixtures/prompts.json" />
+    <entry file="file://$PROJECT_DIR$/helper.js" />
+    <entry file="file://$PROJECT_DIR$/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="388" column="48" lean-forward="false" selection-start-line="388" selection-start-column="48" selection-end-line="388" selection-end-column="48" />
-          <folding>
-            <marker date="1499389783000" expanded="true" signature="4086:5293" ph="..." />
-          </folding>
+        <state relative-caret-position="235">
+          <caret line="45" column="52" lean-forward="true" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.9.5/core-modules/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9878">
+          <caret line="449" column="5" lean-forward="false" selection-start-line="449" selection-start-column="5" selection-end-line="449" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/mock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_github.com_DefinitelyTyped_DefinitelyTyped_raw_master_types_jasmine_index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="446" column="8" lean-forward="false" selection-start-line="446" selection-start-column="8" selection-end-line="446" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prompts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1364">
+          <caret line="62" column="66" lean-forward="false" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bbtCardServicesHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
+        <state relative-caret-position="7106">
+          <caret line="323" column="22" lean-forward="false" selection-start-line="323" selection-start-column="22" selection-end-line="323" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/bbtCardServicesHelper-auth.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4862">
+          <caret line="221" column="98" lean-forward="false" selection-start-line="221" selection-start-column="98" selection-end-line="221" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8580">
+          <caret line="390" column="46" lean-forward="false" selection-start-line="390" selection-start-column="46" selection-end-line="390" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/testIntents.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="131" column="90" lean-forward="false" selection-start-line="131" selection-start-column="90" selection-end-line="131" selection-end-column="90" />
+        <state relative-caret-position="328">
+          <caret line="544" column="73" lean-forward="false" selection-start-line="544" selection-start-column="73" selection-end-line="544" selection-end-column="73" />
           <folding />
         </state>
       </provider>

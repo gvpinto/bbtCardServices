@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-// var BbtCardServicesHelper = require('./bbtCardServicesHelper.js');
+var BbtCardServicesHelper = require('./bbtCardServicesHelper.js');
 //
 //
 // var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
@@ -24,20 +24,31 @@ var _ = require('lodash');
 // intent(request, response);
 // =================================================
 
-function TestFunction() {
-
-}
-TestFunction.prototype.testFunc = function() {
-    return "It Works";
-    this.testFunc2 = function() {
-        return "It works too!";
-    }
-}
-
-console.log(TestFunction.prototype.testFunc());
-console.log(TestFunction.testFunc2());
+// function TestFunction() {
+//
+// }
+// TestFunction.prototype.testFunc = function() {
+//     return "It Works";
+//     this.testFunc2 = function() {
+//         return "It works too!";
+//     }
+// }
+//
+// console.log(TestFunction.prototype.testFunc());
+// console.log(TestFunction.testFunc2());
 
 // =================================================
+
+
+// var test = require('./helper');
+// console.log(test.helloWorld());
+
+// =================================================
+
+var bbtCardServicesHelper = new BbtCardServicesHelper({isAuth: false, action: 'launch'});
+var response = bbtCardServicesHelper.intentWithAction('block', 'credit');
+console.log('Launch: ', bbtCardServicesHelper.getPrompts(response.step).launch);
+
 
 
 // var prompts = [{

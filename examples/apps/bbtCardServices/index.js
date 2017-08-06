@@ -146,40 +146,9 @@ bbtCardServicesApp.launch(function (request, response) {
     response.say(respObj.verbiage).shouldEndSession(false);
 });
 
-// bbtCardServicesApp.intent('intentPinAuth', {
-//     'slots': {
-//         'action': 'ACTION',
-//         'cardType': 'CARD_TYPE'
-//     },
-//     'utterances': [
-//         'I\'ve have {-|action} my {-|cardType} card',
-//         'My {-|cardType} was {-|action}',
-//         'I can\'t {-|action} my {-|cardType} card'
-//     ]
-// } ,function(request, response) {
-//     console.log('[intentPinAuth]');
-//     var bbtCardServicesHelper = getbbtCardServicesHelper(request);
-//
-//
-//     var action = request.slot('action');
-//     console.log('[intentLostOrStolen] - action: ', action);
-//
-//     var cardType = request.slot('cardType');
-//     console.log('[intentLostOrStolen] - cardType: ', cardType);
-//
-//     // Action default to lost when the card is lost or stolen
-//     var respobj = bbtCardServicesHelper.intentPinAuth(action, cardType);
-//
-//     console.log('[intentLostOrStolen] - response: ', respobj.verbiage);
-//
-//     // Update Session Information
-//     setCardServicesSession(request, bbtCardServicesHelper.getCardServicesSession());
-//
-//     // Return true if Synchronous call if not return false
-//     response.say(respobj.verbiage).shouldEndSession(false);
-//     return true;
-// });
-
+/**
+ * Intent: Lost or Stolen
+ */
 bbtCardServicesApp.intent('intentLostOrStolen', {
     'slots': {
         'action': 'ACTION',
@@ -222,7 +191,8 @@ bbtCardServicesApp.intent('intentBlock', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{|I would like|I\'ll like} {to} block my {-|cardType} card'
+        '{|I would like|I\'ll like} {|to} block my {-|cardType} card',
+        '{|I would like|I\'ll like} {|to} block my card'
     ]
 }, function(request, response) {
     console.log('[intentBlock]');
@@ -251,7 +221,9 @@ bbtCardServicesApp.intent('intentUnblock', {
         'cardType': 'CARD_TYPE'
     },
     'utterances': [
-        '{|I would like|I\'ll like} {to} unblock my {-|cardType} card'
+        '{|I would like|I\'ll like} {|to} unblock my {-|cardType} card',
+        '{|I would like|I\'ll like} {|to} unblock my card',
+
     ]
 }, function(request, response) {
     console.log('[intentUnblock]');
@@ -434,18 +406,6 @@ bbtCardServicesApp.intent('AMAZON.YesIntent', {}, function (request, response) {
     return true;
 });
 
-bbtCardServicesApp.intent('AMAZON.NoIntent', {}, function (request, response) {
-
-    console.log('[AMAZON.NoIntent]');
-    var bbtCardServicesHelper = getbbtCardServicesHelper(request);
-    var respObj = bbtCardServicesHelper.getSignOff();
-    clearSession(request);
-    response.say(respObj.verbiage).shouldEndSession(true);
-    return true;
-
-});
-
-
 /**
  * Intent: Overall default Amazon HELP Intent to ask for help anytime
  */
@@ -457,21 +417,66 @@ bbtCardServicesApp.intent('AMAZON.HelpIntent', {}, function (request, response) 
 
 });
 
+// /**
+//  * Intent: NO
+//  */
+// bbtCardServicesApp.intent('AMAZON.NoIntent', {}, function (request, response) {
+//
+//     console.log('[AMAZON.NoIntent]');
+//     // var bbtCardServicesHelper = getbbtCardServicesHelper(request);
+//     // var respObj = bbtCardServicesHelper.getSignOff();
+//     // clearSession(request);
+//     // response.say(respObj.verbiage).shouldEndSession(true);
+//     // return true;
+//     //-------------------------------------------------------------------
+//     // var respText = 'Your request has been cancelled. Thank you for banking with B B and T. Have a nice day!';
+//     if (getCardServicesSession(request).action === 'cancel') {
+//         response.shouldEndSession(true);
+//     } else {
+//         // Clear Session but keep the authentication
+//         clearSession(request, true);
+//         response.shouldEndSession(false);
+//     }
+//
+//     var respObj = getbbtCardServicesHelper(request).intentCancel();
+//
+//     console.log('[AMAZON.CancelIntent/AMAZON.StopIntent] - response: ', respObj.verbiage);
+//     response.say(respObj.verbiage);
+//
+//     // End the session only after user commits to cancelling the session otherwise give one more opportunity to continue through BB&T PCE
+//
+// });
 
 /**
  * Intent: Default Amazon Cancel Intent to cancel the transaction anytime
  */
 var cancelIntentFunction = function (request, response) {
     console.log('[AMAZON.CancelIntent/AMAZON.StopIntent]');
-    var respText = 'Your request has been cancelled. Thank you for banking with B B and T. Have a nice day!';
-    console.log('[AMAZON.CancelIntent/AMAZON.StopIntent] - response: ', respText);
-    clearSession(request);
-    response.say(respText).shouldEndSession(true);
+    // var respText = 'Your request has been cancelled. Thank you for banking with B B and T. Have a nice day!';
+    if (getCardServicesSession(request).action === 'exit') {
+        // clearSession(request, false);
+        // Un Authenticate
+        getCardServicesSession(request).isAuth = false;
+        response.shouldEndSession(true);
+    } else {
+        // Clear Session but keep the authentication
+        clearSession(request, true);
+        response.shouldEndSession(false);
+    }
+
+    var respObj = getbbtCardServicesHelper(request).intentCancel();
+
+    console.log('[AMAZON.CancelIntent/AMAZON.StopIntent] - response: ', respObj.verbiage);
+    response.say(respObj.verbiage);
+
+    // End the session only after user commits to cancelling the session otherwise give one more opportunity to continue through BB&T PCE
+
 };
 
 
 bbtCardServicesApp.intent('AMAZON.CancelIntent', {}, cancelIntentFunction);
 bbtCardServicesApp.intent('AMAZON.StopIntent', {}, cancelIntentFunction);
+bbtCardServicesApp.intent('AMAZON.NoIntent', {}, cancelIntentFunction);
 // bbtCardServicesApp.intent('AMAZON.NoIntent', {}, cancelIntentFunction);
 
 
